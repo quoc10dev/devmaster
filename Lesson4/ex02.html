@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The phan chia khu vuc</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-color: antiquewhite;
+
+    }
+    form{
+        margin: 1rem auto;
+        width: 300px;
+        background-color: aqua;
+        padding: 1rem;
+        border-radius: 5px;
+    }
+    .form-group{
+        display: flex;
+        margin: .5rem auto;
+    }
+    .form-group > label{
+        display: block;
+        width: 100px;
+    }
+    .form-group > div{
+        width:200px;
+    }
+.form-group > div input{
+    
+}
+
+</style>
+<body>
+    <form action="">
+        <div>
+            <h1>Dang nhap he thong</h1>
+        </div>
+        <div class="form-group">
+            <label for="taikhoan">Taikhoan</label>
+            <div>
+                <input type="text" name="taikhoan" id="taikhoan">
+                <span id="errtaikhoan" class="error">(*)</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="makhau">Mat khau</label>
+            <div>
+                <input type="password" name="matkhau" id="matkhau">
+                <span id="errmatkhau" class="error">(*)</span>
+            </div>
+
+        </div>
+   
+    <div class="form-group">
+        <label for=""></label>
+      
+        <div >
+            <input type="checkbox" name="ckghinho" id="ckghinho">
+            <label for="ckghinho">Ghi nho</label>
+        </div>
+    </div>
+        <div class="form-group">
+            <label for=""></label>  
+            
+            <input type="submit" value="Dang nhap" id="btdangnhap" name="btdangnhap" class="btn btn-primary">
+            <input type="Reset" value="Lam lai" id="btlamlai" name="btlamlai" class="btn btn-secondary">
+            
+
+        </div>
+    </div>
+</form>
+</body>
+</html>
