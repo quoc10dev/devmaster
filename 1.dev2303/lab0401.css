@@ -1,0 +1,65 @@
+nav,  
+nav ul,
+nav li,
+nav a {
+    /* Thiêt lập các thông số về lề đường kẻ */
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+   
+}
+nav {
+    height: 40px;
+    background: #4c4e5a;
+    background: -moz-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%);
+    background: -webkit-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%);
+    background: -o-linear-gradient(top, #4c4e5a 0%, #2c2d33 100%);
+    background: linear-gradient(top, #4c4e5a 0%, #2c2d33 100%);
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+}
+
+nav ul li {
+    position: relative;
+    list-style: none;
+    display: block;
+    float : left;
+    height: 40px;
+}
+
+nav ul li a{
+    display: block;
+    padding: 0 14px;
+    margin: 6px 0;
+    line-height: 28px;
+    text-decoration: none;
+    border-left: 1px solid #393942;
+    border-right: 1px #4f5058;
+    font-weight: bold;
+    font-size: 13px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-shadow: 1px 1px 1px rgba(0,0,0,6);
+    transition: color .2s ease-in-out;
+    -webkit-transition: color .2s ease-in-out;
+
+}
+nav ul li:first-child a {border-left: none;}
+nav ul li:last-child a {border-right: none;}
+nav ul li:hover > a {color: green;}
+
+ul.submenu {
+    position:absolute ;
+    top: 40px;
+    left: 0;
+    width: 100px;
+    opacity: 0;
+    background:#4c4e5a;
+    border-radius: 5px;
+}
+ul li:hover > ul.submenu {
+    opacity: 10;
+    /* height: auto;
+} 
