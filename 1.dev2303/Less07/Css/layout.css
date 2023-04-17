@@ -1,0 +1,36 @@
+*{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+}
+header{
+   
+}
+header nav{
+    width: 500px;
+    display: flex;
+    margin: auto;
+}
+header ul{
+    background-color: #b1e007;
+    display: flex;
+    justify-content: center;
+}
+header ul .item{
+    padding: 5px 15px;
+    border-right: 1px solid #000 ;
+}
+/* #item{
+    border: none;
+} */
+header ul .item:last-child{
+    border: none;
+}
+
+header ul .item:nth-child(3){
+    border: none;
+}
+

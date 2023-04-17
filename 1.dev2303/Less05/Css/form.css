@@ -1,46 +1,55 @@
+/* *{
+    color: green;
+} */
 button, a{
-    color: red;
+    color: aqua;
 }
-
 form > div{
     color: blue;
 }
-.email, .pass {
-    padding: 5px 15px;
-}
 
+.input-email, .input-pass{
+    padding: 5px 20px;
+    margin-top: 2px;
+}
 form{
-    background-color: rgb(240, 238, 238);
+    background-color: rgb(215, 208, 208);
     padding: 30px 40px;
     width: 220px;
-    border-radius: 10px;
 }
 div img{
-    margin-left: 45px;
+    border-radius: 50%;
+    margin-left: 13px;
 }
-
 #btn{
-    background-color: rgb(28, 169, 235);
-    padding: 7px 10px;
-    border-radius: 5px;
-    border: 0;
-    color: aliceblue;
-    margin-left: 55px;
-    
+    padding: 6px 72px;
+    background-color: rgb(10, 70, 235);
+    margin-top: 10px;
 }
-
-.link a {
-    font-size: 12px;
-    color: blue;
+.link a{
+    font-size: 11px;
+    color: rgb(51, 14, 238);
     text-decoration: none;
 }
 
-/* Độ ưu tiên trong css: id > attr > class  > element  */
-/* Class bắt đầu dấu ., id  bắt đầu dấu # */
+
+/* độ ưu tiên trong css */
 #demo{
     color: red;
 }
 .demo{
     color: green;
 }
-
+[data-attr="demo"]{
+    color: yellow;
+}
+body .demo a{
+    color: blue;
+}
+/* 
+a{
+    color: brown;
+}
+.link a{
+    color: red;
+} */
