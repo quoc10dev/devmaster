@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="../Css/home.css">
+</head>
+<body class="position-rel">
+    <header>
+        <nav class="nav">
+            <div class="d-flex">
+                <div class="menu-left">
+                    <ul class="option menu-1">
+                        <li class="item">
+                            <a href="#" class="link">Trang chủ</a>
+                        </li>
+                        <li class="item">
+                            <a href="#" class="link">Đồng hồ nam</a>
+                        </li>
+                        <li class="item">
+                            <a href="#" class="link">ĐỒng hồ nữ</a>
+                            <ul class="menu-2">
+                                <li class="item">
+                                    <a href="#" class="link">Đồng hồ nam 2</a>
+                                </li>
+                                <li class="item">
+                                    <a href="#" class="link">Đồng hồ nam 2</a>
+                                </li>
+                                <li class="item">
+                                    <a href="#" class="link">Đồng hồ nam 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="menu-center">
+                    <div class="logo">
+                        <img src="
+https://curnonwatch.com/_next/static/media/logo.cc5d661a.svg
+" alt="logo">
+                    </div>
+                </div>
+                <div class="menu-right">
+                    <div>
+                        <ul class="option">
+                            <li class="item">
+                                <a href="#" class="link">Giỏ hàng</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="content-page content-home">
+        <div class="banner-home">
+            <div class="banner-img">
+                <img class="w-100"src="https://devmaster.edu.vn/images/logo.png" alt="image">
+                <div class="home-category">
+                    <div class="list-category">
+                        <div class="category-content">
+                            <div class="image-cate">
+                                <img class="w-100"src="https://devmaster.edu.vn/images/logo.png" alt="cate1">
+
+                            </div>
+                            <div class="title-cate">
+                                <div class="title">
+                                    <h4>Dong ho nam</h4>
+                                </div>
+                                <div class="cate-detail">
+                                    ->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-content">
+                            <div class="image-cate">
+                                <img class="w-100"src="
+https://devmaster.edu.vn/images/logo.png
+" alt="cate1">
+
+                            </div>
+                            <div class="title-cate">
+                                <div class="title">
+                                    <h5>Dong ho nam</h5>
+                                </div>
+                                <div class="cate-detail">
+                                    ->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="category-content">
+                            <div class="image-cate">
+                                <img class="w-100"src="
+https://devmaster.edu.vn/images/logo.png
+" alt="cate1">
+
+                            </div>
+                            <div class="title-cate">
+                                <div class="title">
+                                    <h4>Dong ho nam</h4>
+                                </div>
+                                <div class="cate-detail">
+                                    ->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <style>
+        *{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            font-size: 20px;
+            color: #000;
+            text-decoration: none;
+        }
+        .d-flex{
+            display: flex;
+            justify-content: space-between;
+            padding: 0 100px;
+        }
+        
+        .nav{
+            background-color: #f8f7f4;
+            padding: 15px;
+        }
+        .menu-left .option{
+            display: flex;
+        }
+        .menu-left .option .item{
+            padding: 8px 20px;
+        }
+        .nav .d-flex > div{
+            width: 33%;
+        }
+        .nav .menu-center .logo{
+            display: flex;
+            margin: auto;
+            width: 80px;
+        }
+        .nav .menu-right ul{
+            display: flex;
+            margin-left: auto;
+            width: 80px;
+            padding-top: 10px;
+        }
+        .menu-2{
+            display: none;
+            position: absolute;
+            width: 200px;
+            background-color: #f8f7f4;
+            top: 100%;
+            left: 0;
+        
+        }
+        .item{
+            position: relative;
+        }
+        
+        .item:hover .menu-2 {
+            display: block;
+        }
+        .menu-2 .item {
+            text-align: center;
+        }
+        .menu-2 .item:hover{
+            background-color: red;
+        }
+        
+        .w-100{
+            width: 100%;
+        }
+        
+        
+        .home-category .list-category .title-cate{
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0px;
+            bottom:10%;
+            left: 0;
+            position: absolute;
+            width: 100%;
+        }
+        .category-content{
+            position: relative;
+            width: 32%;
+        
+        }
+        
+        .title-cate .title{
+            padding-left: 10px;
+        }
+        .title-cate .cate-detail{
+            padding-right: 20px;
+        }
+        
+        .list-category{
+            padding: 0;
+            width: 60%;
+            margin: auto;
+        } 
+    </style>
+</body>
+</html> 

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM in javascript</title>
+</head>
+<body>
+    <p class="text" id="text" data-attr="text">
+        devmaster 
+    </p>
+
+    <input type="text" name="username" id="username">
+
+    
+    <script language="javascript">
+        function getUserNameinput(){
+            var username = document.getElementById('username').value;
+            console.log("username: ", username);
+        }
+        var elementP = document.getElementsByTagName('p');
+        console.log("elementP: ", elementP);
+
+    </script>
+</body>
+</html>
