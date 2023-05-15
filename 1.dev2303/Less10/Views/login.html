@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="../Css/form.css">
+</head>
+<body>
+    <form>
+        <div class="avatar">
+            <div class="image">
+                <img src="https://devmaster.edu.vn/images/logo.png" alt="devmaster">
+            </div>
+        </div>
+        <div class="content">
+            <div class="input">
+                <div class="email">
+                    <input onchange="precheckEmail()" type="email" id="email" name="email" placeholder="Email" class="input-email">
+                </div>
+                <div class="pass">
+                    <input type="password" id="password" name="password" placeholder="Mật khẩu" class="input-pass">
+                </div>
+            </div>
+            <div class="action">
+                <div class="btn">
+                    <button id="btn" type="button" onclick="precheckLogin()">Đăng nhập</button>
+                </div>
+                <div class="link">
+                    <a href="https://devmaster.edu.vn/" title="devmaster">Bạn cần sự trợ giúp từ devmaster?</a>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="demo">
+        <a href="#" class="demo" id="demo" data-attr="demo">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum, perferendis! A saepe dolorum at, incidunt vitae quo maiores dolorem sit, ullam, delectus ea porro? Pariatur nulla sint nostrum facere fugit?
+        </a>
+    </div>
+
+    <script language="javascript">
+        function precheckLogin(){
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            if(email == "" && password == ""){
+                alert("email và password đang bị trống");
+            } else{
+                if (email == ""){
+                    alert("email đang bị trống");
+                } else if(password == ""){
+                    alert("password đang bị trống");
+                } else{
+                    checkInfor(email, password);
+                }
+            }
+        }
+        function precheckEmail(){
+            var email = document.getElementById('email').value;
+            if(email.toLowerCase().match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+                console.log("true");
+            } else{
+                console.log("false");
+            }
+        }
+        // Đối tượng
+        // hợp thành bởi các thuộc tính
+        // các thuộc tính: chiều cao, cân nặng, tên, tuổi, gt ==> con người
+        var people = {
+            name : "devmaster",
+            height : "172cm",
+            gen : ""
+        } 
+        // khai báo: 
+        // cú pháp : var <tên_biến> = { <tên_thuộc tính_1> : "value",
+        //                              <tên_thuộc tính_2> : "value"
+        //                          };
+        // tương tác:
+        // <tên_biến>.<tên thuộc tính>
+            var name = people.name // ==> name = devmaster
+        var account = {
+            email : "test@gmail.com",
+            pass :  "123456"
+        }
+
+        function checkInfor(email, passw){
+            var infor = {
+                mail: email,
+                pass : passw
+            }
+            console.log("infor: ", infor);
+            if(email != account.email){
+                console.log("sai email");
+            } else if(passw != account.pass){
+                console.log("sai pass");
+            } else{
+                alert("success");
+            }
+        }
+    </script>
+</body>
+</html>

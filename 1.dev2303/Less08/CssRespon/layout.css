@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-size: 20px;
+    list-style: none;
+}
+
+
+html{
+    font-size: 20px;
+}
+.d-flex{
+    display: flex;
+}
+
+.w-50{
+    width: 50%;
+}
+.position-rel{
+    position: relative;
+}
+.w-100{
+    width: 100%;
+}
+.w-25{
+    width: 25%;
+}
+.text-center{
+    text-align: center;
+}
+.mb-2r{
+    margin-bottom: 2rem;
+}
+.mb-1r{
+    margin-bottom: 0.75rem;
+}
+.font-15{
+    font-size: 0.75rem;
+}
+
+
+/* font */
+@font-face {
+    font-family: "Roboto-Regular";
+    src: url("../font/Roboto-Regular.ttf");
+}
+@font-face {
+    font-family: "Roboto-Italic";
+    src: url("../font/Roboto-Italic.ttf");
+}   

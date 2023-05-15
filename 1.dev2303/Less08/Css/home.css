@@ -1,0 +1,159 @@
+*{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    color: #000;
+    text-decoration: none;
+}
+.d-flex{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 100px;
+}
+
+.nav{
+    background-color: #f8f7f4;
+    padding: 15px;
+}
+.menu-left .option{
+    display: flex;
+}
+.menu-left .option .item{
+    padding: 8px 20px;
+}
+.nav .d-flex > div{
+    width: 33%;
+}
+.nav .menu-center .logo{
+    display: flex;
+    margin: auto;
+    width: 80px;
+}
+.nav .menu-right ul{
+    display: flex;
+    margin-left: auto;
+    width: 80px;
+    padding-top: 10px;
+}
+.menu-2{
+    display: none;
+    position: absolute;
+    width: 200px;
+    background-color: #f8f7f4;
+    top: 100%;
+    left: 0;
+
+}
+.item{
+    position: relative;
+}
+
+.item:hover .menu-2 {
+    display: block;
+}
+.menu-2 .item {
+    text-align: center;
+}
+.menu-2 .item:hover{
+    background-color: red;
+}
+
+
+/* content home */
+.w-100{
+    width: 100%;
+}
+
+.cate-content{
+    width: 33%;
+}
+.home-category .list-cate .cate-title{
+    padding: 10px 0px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+
+}
+.cate-content{
+    position: relative;
+}
+.cate-title .title{
+    padding-left: 30px;
+}
+.cate-title .cate-detail{
+    padding-right: 30px;
+}
+.list-cate{
+    padding: 0;
+    width: 60%;
+    margin: auto;
+}
+.cate-detail:hover{
+    color: red;
+}
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 3;
+}
+.position-rel{
+    position: relative;
+}
+
+
+
+@keyframes animationName {
+    from {top: 0%;left: 0;}
+    to {top: 100%;left: 0;}
+  }
+  
+  .menu-2{
+    animation-name: animationName;
+    animation-duration: 4s;
+  }
+
+ .product{
+    width: 22%;
+ } 
+ .product-sale{
+    position: absolute;
+    background-color: red;
+    padding: 5px 9px;
+    border-radius: 4px;
+    top: 0;
+    left: 0;
+ }
+ .center-product h4{
+    text-align: center;
+ }
+ .bottom-product{
+    position: absolute;
+    background-color: #000;
+    display: none;
+    top: 60%;
+    left: 0;
+    width: 100%;
+ }
+ .bottom-product button{
+    color: #fff;
+    width: 100%;
+    background: transparent;
+    border: 0;
+ }
+.product:hover .bottom-product{
+    display: block;
+}
+@keyframes showHide {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+.bottom-product{
+    opacity: 1;
+    animation-name: showHide;
+    animation-duration: 5s;
+}
+.bottom-product button:hover{
+    background-color: aliceblue;
+}
