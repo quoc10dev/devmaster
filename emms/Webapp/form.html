@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Form Add/Edit | ZeroAdmin</title>
+  <meta name="description" content="{$description}">
+  <meta name="keywords" content="{$keywords}">
+  <meta name="author" content="Trần Ngọc Sơn">
+  <meta name="copyright" content="QsvProgram">
+  <meta name="robots" content="noindex">
+
+  <!-- Styles -->
+  <link href="dist/styles.css" rel="stylesheet">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{$shortcut}">
+  <link rel="shortcut icon" href="{$shortcut}">
+</head>
+<body>
+  <aside id="sidebar" class="onoffcanvas is-fixed is-left is-hoverable">
+    <h2 class="side-header">
+      <a class="logo" href="#">
+        <img src="img/logo.png">
+        <span>Admin</span>
+      </a>
+      <button class="toggler">
+        <i class="material-icons">format_align_center</i>
+      </button>
+    </h2>
+    <div class="side-divider"></div>
+    <div class="side-content">
+      <nav class="side-user">
+        <ul id="usermenu" class="metismenu">
+          <li>
+            <a href="#" class="has-arrow" aria-expanded="false">
+              <span class="has-icon">
+                <i class="material-icons">account_circle</i>
+              </span>
+              <span class="nav-title">Trần Ngọc Sơn</span>
+            </a>
+            <ul aria-expanded="false" class="collapse">
+              <li>
+                <a href="profile.html">
+                  <span class="has-icon">
+                    <i class="text-icons">Pr</i>
+                  </span>
+                  <span class="nav-title">Profile</span>
+                </a>
+              </li>
+              <li>
+                <a href="password.html">
+                  <span class="has-icon">
+                    <i class="text-icons">Pa</i>
+                  </span>
+                  <span class="nav-title">Password</span>
+                </a>
+              </li>
+              <li>
+                <a href="logout.html">
+                  <span class="has-icon">
+                    <i class="text-icons">Lo</i>
+                  </span>
+                  <span class="nav-title">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="side-divider"></div>
+      <nav class="side-nav">
+        <ul id="metismenu" class="metismenu">
+          <li>
+            <a href="index.html">
+              <span class="has-icon">
+                <i class="material-icons">dashboard</i>
+              </span>
+              <span class="nav-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="#" class="has-arrow" aria-expanded="true">
+              <span class="has-icon">
+                <i class="material-icons">card_giftcard</i>
+              </span>
+              <span class="nav-title">Modules</span>
+            </a>
+            <ul aria-expanded="true" class="collapse in">
+              <li>
+                <a href="table.html">
+                  <span class="has-icon">
+                    <i class="text-icons">Ta</i>
+                  </span>
+                  <span class="nav-title">Table (List)</span>
+                </a>
+              </li>
+              <li>
+                <a href="view.html">
+                  <span class="has-icon">
+                    <i class="text-icons">Vi</i>
+                  </span>
+                  <span class="nav-title">View (Detail)</span>
+                </a>
+              </li>
+              <li class="active">
+                <a href="form.html">
+                  <span class="has-icon">
+                    <i class="text-icons">Fo</i>
+                  </span>
+                  <span class="nav-title">Form Add/Edit</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="has-arrow" aria-expanded="false">
+              <span class="has-icon">
+                <i class="fab fa-pagelines"></i>
+              </span>
+              <span class="nav-title">Pages</span>
+            </a>
+            <ul aria-expanded="false" class="collapse">
+              <li>
+                <a href="login.html">
+                  <span class="has-icon">
+                    <i class="text-icons">Lo</i>
+                  </span>
+                  <span class="nav-title">Login</span>
+                </a>
+              </li>
+              <li>
+                <a href="lock.html">
+                  <span class="has-icon">
+                    <i class="text-icons">LS</i>
+                  </span>
+                  <span class="nav-title">Lock Sreen</span>
+                </a>
+              </li>
+              <li>
+                <a href="thank.html">
+                  <span class="has-icon">
+                    <i class="text-icons">TY</i>
+                  </span>
+                  <span class="nav-title">Thank you!</span>
+                </a>
+              </li>
+              <li>
+                <a href="error.html">
+                  <span class="has-icon">
+                    <i class="text-icons">EP</i>
+                  </span>
+                  <span class="nav-title">Error Page</span>
+                </a>
+              </li>
+              <li>
+                <a href="ticket.html">
+                  <span class="has-icon">
+                    <i class="text-icons">Ti</i>
+                  </span>
+                  <span class="nav-title">Ticket</span>
+                </a>
+              </li>
+              <li>
+                <a href="request.html">
+                  <span class="has-icon">
+                    <i class="text-icons">Rq</i>
+                  </span>
+                  <span class="nav-title">Request</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <nav class="navbar navbar-light bg-white">
+        <div class="container">
+          <button class="onoffcanvas-toggler is-animated" data-target="#sidebar" data-toggle="onoffcanvas" aria-expanded="false"></button>
+          <a class="navbar-brand mx-auto" href="#">
+            <img src="img/logo.png">
+            <span class="nav-title">Admin</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+    <section class="container-fluid">
+      <div class="card bg-primary">
+        <div class="card-header">
+          <div class="card-text">
+            <h3 class="card-title">Form Add/Edit</h3>
+          </div>
+          <div class="action">
+            <button type="button" class="btn btn-light">
+              <i class="material-icons">list</i> Danh sách</button>
+          </div>
+          <div class="card-body">
+            <dl class="datalist">
+              <dt>Text</dt>
+              <dd>
+                <input class="form-input" type="text" name="text" value="">
+              </dd>
+              <dt>Textarea</dt>
+              <dd>
+                <textarea class="form-input" name="textarea" rows="3"></textarea>
+              </dd>
+              <dt>Editor</dt>
+              <dd>
+                <textarea class="form-input editor" name="editor" rows="3"></textarea>
+              </dd>
+              <dt>HTML</dt>
+              <dd>
+                <textarea class="form-input" name="html" rows="3"></textarea>
+              </dd>
+              <dt>Select</dt>
+              <dd>
+                <select class="form-input select2" name="select">
+                  <option value="" selected="">All</option>
+                  <option value="0">New</option>
+                  <option value="1">Old</option>
+                </select>
+              </dd>
+              <dt>List</dt>
+              <dd>
+                <select class="form-input select2" name="list" multiple>
+                  <option value="">Zero</option>
+                  <option value="1">One</option>
+                  <option value="2">Two</option>
+                  <option value="3">Three</option>
+                </select>
+              </dd>
+              <dt>Checkbox</dt>
+              <dd>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" value="" id="check1">
+                  <label class="form-check-label" for="check1">Default checkbox</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="checkbox" value="" id="check2" disabled>
+                  <label class="form-check-label" for="check2">Disabled checkbox</label>
+                </div>
+              </dd>
+              <dt>Radio</dt>
+              <dd>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="radio" id="radio1" value="option1" checked>
+                  <label class="form-check-label" for="radio1">
+                    Default radio
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="radio" id="radio2" value="option2">
+                  <label class="form-check-label" for="radio2">
+                    Second default radio
+                  </label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="radio" id="radio3" value="option3" disabled>
+                  <label class="form-check-label" for="radio3">
+                    Disabled radio
+                  </label>
+                </div>
+              </dd>
+              <dt>Date</dt>
+              <dd>
+                <input class="form-input date" type="text" name="date" value="">
+              </dd>
+              <dt>DatePicker</dt>
+              <dd>
+                <input class="form-input datepickr" type="text" name="datepickr" value="">
+              </dd>
+              <dt>Year</dt>
+              <dd>
+                <input class="form-input year" type="text" name="year" value="">
+              </dd>
+              <dt>Time</dt>
+              <dd>
+                <input class="form-input time" type="text" name="time" value="">
+              </dd>
+              <dt>TimePicker</dt>
+              <dd>
+                <input class="form-input timepickr" type="text" name="timepickr" value="">
+              </dd>
+              <dt>DateTime</dt>
+              <dd>
+                <input class="form-input datetime" type="text" name="datetime" value="">
+              </dd>
+              <dt>DateTimePicker</dt>
+              <dd>
+                <input class="form-input datetimepickr" type="text" name="datetimepickr" value="">
+              </dd>
+              <dt>Files</dt>
+              <dd>
+                <div class="qsvupldr">
+                  <div id="qsvuploadr1" class="uploadr" data-name="files" multiple>
+                    <div class="control">
+                      <a id="qsvpickr1" href="#picker" class="btn btn-secondary pickr" title="Giữ ctrl để chọn nhiều hình upload"><i class="fas fa-upload"></i> Upload hình</a>
+                      <span class="status">Trình duyệt không hỗ trợ HTML5, Flash hoặc Silverlight!</span>
+                    </div>
+                    <ul class="preview"></ul>
+                  </div>
+                </div>
+              </dd>
+              <dt>File</dt>
+              <dd>
+                <div class="qsvupldr">
+                  <div id="qsvuploadr2" class="uploadr" data-name="file">
+                    <div class="control">
+                      <a id="qsvpickr2" href="#picker" class="btn btn-secondary pickr" title="Chọn một hình upload"><i class="fas fa-upload"></i> Upload thiết kế</a>
+                      <span class="status">Trình duyệt không hỗ trợ HTML5, Flash hoặc Silverlight!</span>
+                    </div>
+                    <ul class="preview"></ul>
+                  </div>
+                </div>
+              </dd>
+              <dt>Auto</dt>
+              <dd>
+                <input class="form-input small" type="text" name="auto" value="" readonly>
+              </dd>
+              <dt>Number</dt>
+              <dd>
+                <input class="form-input small number" type="text" name="number" value="">
+              </dd>
+              <dt>Password</dt>
+              <dd>
+                <input class="form-input small" type="password" name="password" value="">
+              </dd>
+              <dt>Money</dt>
+              <dd>
+                <input class="form-input small money" type="text" name="money" value=""> VNĐ
+              </dd>
+              <dt>Quantity</dt>
+              <dd>
+                <input class="form-input tiny quantity" type="text" name="quantity" value=""> SP
+              </dd>
+              <dt>Weight</dt>
+              <dd>
+                <input class="form-input tiny weight" type="text" name="weight" value=""> KG
+              </dd>
+              <dt>Percent</dt>
+              <dd>
+                <input class="form-input percent" type="text" name="percent" value=""> %
+              </dd>
+              <dt></dt>
+              <dd>
+                <button type="button" class="btn btn-info btn-sm">Quay lại</button>
+              </dd>
+            </dl>
+          </div>
+        </div>
+    </section>
+
+    <footer>
+      <div class="container-fluid">
+        <p class="copyright">Copyright ©2018 QsvProgram. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </main>
+
+  <div id="gotop">
+    <a href=#top>
+      <div>
+        <i class="fa fa-angle-up" aria-hidden="true"></i>
+      </div>
+    </a>
+  </div>
+
+  <!-- jQuery --> 
+  <script src="//code.jquery.com/jquery-3.3.1.js"></script> 
+  <script>window.jQuery || document.write('<script src="ext/jquery/jquery.min.js"><\/script>')</script> 
+
+  <!-- Scripts -->
+  <script src="dist/bundle.js"></script>
+</body>
+</html>

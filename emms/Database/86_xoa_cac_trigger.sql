@@ -1,0 +1,10 @@
+
+
+
+drop trigger tg_tblNapNhienLieu_AfterUpdate
+drop trigger tg_tblNapNhienLieu_AfterInsert
+drop trigger tg_tblNapNhienLieu_AfterDelete
+
+drop trigger tg_tblNhatKyHoatDong_AfterInsert 
+drop trigger tg_tblNhatKyHoatDong_AfterDelete
+drop trigger tg_tblNhatKyHoatDong_AfterUpdate

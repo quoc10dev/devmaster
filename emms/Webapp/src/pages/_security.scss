@@ -1,0 +1,56 @@
+.role-name {
+    margin-bottom: 20px;
+}
+
+.role-list {
+    margin-bottom: 2rem;
+
+    .role-group {
+        background: #eee;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+        padding: 5px 10px;
+        margin: 0;
+    }
+}
+
+.permission {
+    margin-right: -10px;
+    margin-left: -10px;
+
+    & > .col,
+    & > [class*='col-'] {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .card {
+        margin-top: 1rem;
+
+        .card-title {
+            margin-bottom: 0;
+            padding: 10px;
+        }
+
+        .card-category {
+            font-size: 0.8rem;
+            margin-bottom: 0;
+
+            &:hover {
+                background: #f4f4f4;
+            }
+
+            &:last-child {
+                margin-bottom: 10px;
+            }
+
+            label {
+                display: block;
+                cursor: pointer;
+                padding: 5px 10px;
+                margin-left: 20px;
+            }
+        }
+    }
+}

@@ -1,0 +1,8 @@
+C:\Users\quoc.nguyen\source\repos\ConsoleApp5\bin\Debug\ConsoleApp5.exe.config
+C:\Users\quoc.nguyen\source\repos\ConsoleApp5\bin\Debug\ConsoleApp5.exe
+C:\Users\quoc.nguyen\source\repos\ConsoleApp5\bin\Debug\ConsoleApp5.pdb
+C:\Users\quoc.nguyen\source\repos\ConsoleApp5\obj\Debug\Lesson01.csproj.AssemblyReference.cache
+C:\Users\quoc.nguyen\source\repos\ConsoleApp5\obj\Debug\Lesson01.csproj.SuggestedBindingRedirects.cache
+C:\Users\quoc.nguyen\source\repos\ConsoleApp5\obj\Debug\Lesson01.csproj.CoreCompileInputs.cache
+C:\Users\quoc.nguyen\source\repos\ConsoleApp5\obj\Debug\ConsoleApp5.exe
+C:\Users\quoc.nguyen\source\repos\ConsoleApp5\obj\Debug\ConsoleApp5.pdb

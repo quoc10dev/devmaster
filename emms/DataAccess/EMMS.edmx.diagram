@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c002d59502184601b16c355da678bddf" Name="Diagram1" ZoomLevel="67">
+        <EntityTypeShape EntityType="EMMModel.sysdiagram" Width="1.5" PointX="7.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblCapBaoDuong" Width="1.5" PointX="6" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblCapBaoDuongVatTu" Width="1.5" PointX="7.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblCongTy" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblDinhMucNhienLieu" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblDinhMucTheoNgay" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblFunction" Width="1.5" PointX="8.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblKieuBaoDuong" Width="1.5" PointX="1.5" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblLoaiBaoDuong" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblLoaiHuHong" Width="1.5" PointX="6" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblLoaiVatTu" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblNapNhienLieu" Width="1.5" PointX="5.25" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblNhaCungCap" Width="1.5" PointX="3" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblNhatKyHoatDong" Width="1.5" PointX="5.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblPhongBan" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblQuyTrinhBaoDuong" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblRight" Width="1.5" PointX="10.75" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblRightsInRole" Width="1.5" PointX="13" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblRole" Width="1.5" PointX="10.75" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblSystemSetting" Width="1.5" PointX="12.75" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblTanSuatHoatDong" Width="1.5" PointX="5.25" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblTheBaoDuong" Width="1.5" PointX="8.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblTrangThietBi" Width="2" PointX="2.875" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblUser" Width="1.5" PointX="10.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblUserRole" Width="1.5" PointX="13" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMMModel.tblVatTu" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <AssociationConnector Association="EMMModel.FK_tblCapBaoDuong_tblLoaiBaoDuong" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblCapBaoDuongVatTu_tblCapBaoDuong" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblTheBaoDuong_tblCapBaoDuong" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblCapBaoDuongVatTu_tblVatTu" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblPhongBan_tblCongTy" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblTrangThietBi_tblCongTy" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblDinhMucNhienLieu_tblTrangThietBi" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblDinhMucTheoNgay_tblTrangThietBi" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblRights_tblFunctions" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblLoaiBaoDuong_tblKieuBaoDuong" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblTheBaoDuong_tblLoaiHuHong" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblVatTu_tblLoaiVatTu" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblNapNhienLieu_tblTrangThietBi" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblVatTu_tblNhaCungCap" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblNhatKyHoatDong_tblTrangThietBi" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblVatTu_tblPhongBan" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblTrangThietBi_tblQuyTrinhBaoDuong" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblRightsInRoles_tblRights" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblRightsInRoles_tblRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblUserRole_tblRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblTanSuatHoatDong_tblTrangThietBi" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblTheBaoDuong_tblTrangThietBi" ManuallyRouted="false" />
+        <AssociationConnector Association="EMMModel.FK_tblUserRole_tblUser" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EMMModel.tblCongViec" Width="1.5" PointX="11.5" PointY="19.5" />
+        <EntityTypeShape EntityType="EMMModel.tblChiTietBaoDuong" Width="1.5" PointX="18.875" PointY="11.125" />
+        <EntityTypeShape EntityType="EMMModel.tblChiTietBaoDuongCongViec" Width="1.5" PointX="21.125" PointY="15.25" />
+        <EntityTypeShape EntityType="EMMModel.tblHangMucBaoDuong" Width="1.5" PointX="16.625" PointY="16.5" />
+        <EntityTypeShape EntityType="EMMModel.tblNhomHangMucBaoDuong" Width="1.5" PointX="14.375" PointY="16.625" />
+        <AssociationConnector Association="EMMModel.FK_tblChiTietBaoDuong_tblHangMucBaoDuong" />
+        <AssociationConnector Association="EMMModel.FK_tblChiTietBaoDuong_tblTheBaoDuong" />
+        <AssociationConnector Association="EMMModel.FK_tblChiTietBaoDuongCongViec_tblChiTietBaoDuong" />
+        <AssociationConnector Association="EMMModel.FK_tblChiTietBaoDuongCongViec_tblCongViec" />
+        <AssociationConnector Association="EMMModel.FK_tblHangMucBaoDuong_tblNhomHangMucBaoDuong" />
+        <EntityTypeShape EntityType="EMMModel.tblHangMucLoaiTrangThietBi" Width="1.5" PointX="18.875" PointY="7.75" />
+        <AssociationConnector Association="EMMModel.FK_tblHangMucNhomTrangThietBi_tblHangMucBaoDuong1" />
+        <EntityTypeShape EntityType="EMMModel.tblCapBaoDuongCongViec" Width="1.5" PointX="21.125" PointY="18" />
+        <AssociationConnector Association="EMMModel.FK_tblCapBaoDuongCongViec_tblCapBaoDuong" />
+        <AssociationConnector Association="EMMModel.FK_tblCapBaoDuongCongViec_tblCongViec" />
+        <AssociationConnector Association="EMMModel.FK_tblCapBaoDuongCongViec_tblHangMucLoaiTrangThietBi" />
+        <EntityTypeShape EntityType="EMMModel.tblTanSuatHoatDongThucTe" Width="1.5" PointX="12.375" PointY="5.75" />
+        <EntityTypeShape EntityType="EMMModel.tblSkySoft" Width="1.5" PointX="14.375" PointY="3.75" />
+        <EntityTypeShape EntityType="EMMModel.tblPhieuSuaChua" Width="1.5" PointX="15.375" PointY="7.75" />
+        <AssociationConnector Association="EMMModel.FK_tblPhieuSuaChua_tblTrangThietBi" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

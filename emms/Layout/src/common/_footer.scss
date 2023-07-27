@@ -1,0 +1,12 @@
+footer {
+  margin: 2rem 0;
+  text-align: right;
+  
+  @include media-breakpoint-down(sm) {
+    text-align: center;
+  }
+
+  .copyright {
+    color: gray;
+  }
+}

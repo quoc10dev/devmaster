@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Table (List) | ZeroAdmin</title>
+  <meta name="description" content="{$description}">
+  <meta name="keywords" content="{$keywords}">
+  <meta name="author" content="Trần Ngọc Sơn">
+  <meta name="copyright" content="QsvProgram">
+  <meta name="robots" content="noindex">
+
+  <!-- Styles -->
+  <link href="dist/styles.css" rel="stylesheet">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{$shortcut}">
+  <link rel="shortcut icon" href="{$shortcut}">
+</head>
+<body class="compact">
+  <aside id="sidebar" class="onoffcanvas is-fixed is-left is-hoverable">
+    <h2 class="side-header">
+      <a class="logo" href="#">
+        <img src="img/logo.png">
+        <span>Admin</span>
+      </a>
+      <button class="toggler">
+        <i class="material-icons">format_align_center</i>
+      </button>
+    </h2>
+    <div class="side-divider"></div>
+    <div class="side-content">
+      <nav class="side-user">
+        <ul id="usermenu" class="metismenu">
+          <li>
+            <a href="#" class="has-arrow" aria-expanded="false">
+              <span class="has-icon">
+                <i class="material-icons">account_circle</i>
+              </span>
+              <span class="nav-title">Trần Ngọc Sơn</span>
+            </a>
+            <ul aria-expanded="false" class="collapse">
+              <li>
+                <a href="profile.html">
+                  <span class="has-icon">
+                    <i class="text-icons">Pr</i>
+                  </span>
+                  <span class="nav-title">Profile</span>
+                </a>
+              </li>
+              <li>
+                <a href="password.html">
+                  <span class="has-icon">
+                    <i class="text-icons">Pa</i>
+                  </span>
+                  <span class="nav-title">Password</span>
+                </a>
+              </li>
+              <li>
+                <a href="logout.html">
+                  <span class="has-icon">
+                    <i class="text-icons">Lo</i>
+                  </span>
+                  <span class="nav-title">Logout</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <div class="side-divider"></div>
+      <nav class="side-nav">
+        <ul id="metismenu" class="metismenu">
+          <li>
+            <a href="index.html">
+              <span class="has-icon">
+                <i class="material-icons">dashboard</i>
+              </span>
+              <span class="nav-title">Dashboard</span>
+            </a>
+          </li>
+          <li class="active">
+            <a href="#" class="has-arrow" aria-expanded="true">
+              <span class="has-icon">
+                <i class="material-icons">card_giftcard</i>
+              </span>
+              <span class="nav-title">Modules</span>
+            </a>
+            <ul aria-expanded="true" class="collapse in">
+              <li class="active">
+                <a href="table.html">
+                  <span class="has-icon">
+                    <i class="text-icons">Ta</i>
+                  </span>
+                  <span class="nav-title">Table (List)</span>
+                </a>
+              </li>
+              <li>
+                <a href="view.html">
+                  <span class="has-icon">
+                    <i class="text-icons">Vi</i>
+                  </span>
+                  <span class="nav-title">View (Detail)</span>
+                </a>
+              </li>
+              <li>
+                <a href="form.html">
+                  <span class="has-icon">
+                    <i class="text-icons">Fo</i>
+                  </span>
+                  <span class="nav-title">Form Add/Edit</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="has-arrow" aria-expanded="false">
+              <span class="has-icon">
+                <i class="fab fa-pagelines"></i>
+              </span>
+              <span class="nav-title">Pages</span>
+            </a>
+            <ul aria-expanded="false" class="collapse">
+              <li>
+                <a href="login.html">
+                  <span class="has-icon">
+                    <i class="text-icons">Lo</i>
+                  </span>
+                  <span class="nav-title">Login</span>
+                </a>
+              </li>
+              <li>
+                <a href="lock.html">
+                  <span class="has-icon">
+                    <i class="text-icons">LS</i>
+                  </span>
+                  <span class="nav-title">Lock Sreen</span>
+                </a>
+              </li>
+              <li>
+                <a href="thank.html">
+                  <span class="has-icon">
+                    <i class="text-icons">TY</i>
+                  </span>
+                  <span class="nav-title">Thank you!</span>
+                </a>
+              </li>
+              <li>
+                <a href="error.html">
+                  <span class="has-icon">
+                    <i class="text-icons">EP</i>
+                  </span>
+                  <span class="nav-title">Error Page</span>
+                </a>
+              </li>
+              <li>
+                <a href="ticket.html">
+                  <span class="has-icon">
+                    <i class="text-icons">Ti</i>
+                  </span>
+                  <span class="nav-title">Ticket</span>
+                </a>
+              </li>
+              <li>
+                <a href="request.html">
+                  <span class="has-icon">
+                    <i class="text-icons">Rq</i>
+                  </span>
+                  <span class="nav-title">Request</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <nav class="navbar navbar-light bg-white">
+        <div class="container">
+          <button class="onoffcanvas-toggler is-animated" data-target="#sidebar" data-toggle="onoffcanvas" aria-expanded="false"></button>
+          <a class="navbar-brand mx-auto" href="#">
+            <img src="img/logo.png">
+            <span class="nav-title">Admin</span>
+          </a>
+        </div>
+      </nav>
+    </header>
+    <section class="container-fluid">
+      <div class="card bg-primary">
+        <div class="card-header">
+          <div class="card-text">
+            <h3 class="card-title">Table (List)</h3>
+          </div>
+          <div class="action">
+            <button type="button" class="btn btn-light">
+              <i class="material-icons">print</i> Print</button>
+            <button type="button" class="btn btn-warning">
+              <i class="far fa-file-excel"></i> Export</button>
+            <button type="button" class="btn btn-secondary">
+              <i class="material-icons">add</i> Add</button>
+          </div>
+          <div class="filter">
+            <form class="form-inline" action="" method="post">
+              <div class="filter-item">Text
+                <input class="form-input" type="text" name="f[text]" value=""> </div>
+              <div class="filter-item">Number
+                <input class="form-input" type="text" name="f[number]" value=""> </div>
+              <div class="filter-item">Select
+                <select class="form-input" name="f[select]">
+                  <option value="" selected="">All</option>
+                  <option value="0">New</option>
+                  <option value="1">Old</option>
+                </select>
+              </div>
+              <div class="filter-item">Date
+                <input class="form-input date" type="text" name="f[date]" value=""> </div>
+              <div class="filter-item">
+                <button type="button" class="btn btn-info btn-sm">Filter</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="card-body table-responsive">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th width="50" scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+                <th class="text-right" scope="col">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td class="text-right">
+                  <button type="button" data-toggle="tooltip" title="View" class="btn btn-info btn-round">
+                    <i class="material-icons">view_quilt</i>
+                  </button>
+                  <button type="button" data-toggle="tooltip" title="Edit" class="btn btn-success btn-round">
+                    <i class="material-icons">edit</i>
+                  </button>
+                  <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger btn-round">
+                    <i class="material-icons">close</i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td class="text-right">
+                  <button type="button" data-toggle="tooltip" title="View" class="btn btn-info btn-round">
+                    <i class="material-icons">view_quilt</i>
+                  </button>
+                  <button type="button" data-toggle="tooltip" title="Edit" class="btn btn-success btn-round">
+                    <i class="material-icons">edit</i>
+                  </button>
+                  <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger btn-round">
+                    <i class="material-icons">close</i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+                <td class="text-right">
+                  <button type="button" data-toggle="tooltip" title="View" class="btn btn-info btn-round">
+                    <i class="material-icons">view_quilt</i>
+                  </button>
+                  <button type="button" data-toggle="tooltip" title="Edit" class="btn btn-success btn-round">
+                    <i class="material-icons">edit</i>
+                  </button>
+                  <button type="button" data-toggle="tooltip" title="Remove" class="btn btn-danger btn-round">
+                    <i class="material-icons">close</i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer">
+          <nav aria-label="Page navigation">
+            <ul class="pagination">
+              <li class="total">
+                <p>Total
+                  <b>115</b> items</p>
+              </li>
+              <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <span aria-hidden="true">&laquo;</span>
+                  <span class="sr-only">Previous</span>
+                </a>
+              </li>
+              <li class="page-item active">
+                <a class="page-link" href="#">1</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">2</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#">3</a>
+              </li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <span aria-hidden="true">&raquo;</span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </li>
+              <li class="sizer">
+                <select class="form-input">
+                  <option>10 items/page</option>
+                  <option>20 items/page</option>
+                  <option>50 items/page</option>
+                  <option>100 items/page</option>
+                </select>
+              </li>
+              <li class="jumper">
+                Go to
+                <input value="1" type="text" class="form-input"> page
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </section>
+
+    <section class="container-fluid">
+      <div class="card bg-danger">
+        <div class="card-header">
+          <div class="card-icon">
+            <i class="material-icons">content_copy</i>
+          </div>
+          <h3 class="card-title">Module Danger</h3>
+        </div>
+        <div class="card-body table-responsive">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="container-fluid">
+      <div class="card bg-success">
+        <div class="card-header">
+          <div class="card-icon">
+            <i class="material-icons">content_copy</i>
+          </div>
+          <h3 class="card-title">Module Success</h3>
+        </div>
+        <div class="card-body table-responsive">
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container-fluid">
+        <p class="copyright">Copyright ©2018 QsvProgram. All Rights Reserved.</p>
+      </div>
+    </footer>
+  </main>
+
+  <div id="gotop">
+    <a href=#top>
+      <div>
+        <i class="fa fa-angle-up" aria-hidden="true"></i>
+      </div>
+    </a>
+  </div>
+
+  <!-- jQuery --> 
+  <script src="//code.jquery.com/jquery-3.3.1.js"></script> 
+  <script>window.jQuery || document.write('<script src="ext/jquery/jquery.min.js"><\/script>')</script> 
+
+  <!-- Scripts -->
+  <script src="dist/bundle.js"></script>
+</body>
+</html>

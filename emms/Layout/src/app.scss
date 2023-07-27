@@ -1,0 +1,20 @@
+// Bootstrap & Icons
+@import "bootstrap";
+@import "fonticons";
+
+// Plugins
+@import "plugins";
+@import "themes";
+
+// Common styles
+@import "common/common";
+@import "common/sidebar";
+@import "common/header";
+@import "common/footer";
+
+// Pages
+@import "pages/dashboard";
+@import "pages/fullscreen";
+@import "pages/profile";
+@import "pages/security";
+@import "pages/request";

@@ -1,0 +1,35 @@
+header {
+  height: 5rem;
+  @include media-breakpoint-up(md) {
+    display: none;
+  }
+
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: 100%;
+  }
+
+  .navbar {
+    @include depth(1);
+    position: fixed;
+    top: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    width: 100%;
+    z-index: 2;
+    
+    .navbar-brand {
+      padding: 0;
+      
+      img {
+        height: 2rem;
+        margin-right: 0.5rem;
+      }
+    }
+
+    button {
+      outline: none;
+    }
+  }
+}

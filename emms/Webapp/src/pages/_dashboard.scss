@@ -1,0 +1,91 @@
+.card-stats {
+  margin-top: -1rem;
+
+  .card {
+    margin-top: 2rem;
+  }
+
+  .card-header {
+    text-align: right;
+
+    .card-icon {
+      margin-right: 0;
+      padding: 20px;
+
+      i {
+        font-size: 2rem;
+      }
+    }
+
+    .card-category {
+      font-size: 1rem;
+      color: #999;
+      margin-bottom: 0;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      color: #3C4858;
+    }
+  }
+
+  .card-footer {
+    color: #999;
+    font-size: 0.7rem;
+    padding-top: 0;
+  }
+}
+
+.card-info {
+  margin-top: -2rem;
+
+  .card {
+    margin-top: 2rem;
+  }
+}
+
+.card-avatar {
+  margin-top: -70px;
+
+  h2 {
+    font-size: 1.4rem;
+    padding: 1rem 0;
+    margin: 0;
+  }
+}
+
+.avatar {
+  @include depth(3);
+  border-radius: 100px;
+  margin: auto;
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+.calendar {
+  .pignose-calendar {
+    box-shadow: none;
+    border: none;
+    width: 100%;
+    max-width: 100%;
+
+    .pignose-calendar-top {
+      display: none;
+    }
+
+    .pignose-calendar-header {
+      margin-top: 0;
+      padding: 0;
+    }
+
+    .pignose-calendar-body {
+      padding: 1.2rem 0;
+    }
+  }
+}

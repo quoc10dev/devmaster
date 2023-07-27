@@ -1,0 +1,64 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="LoginMaster.master.cs" Inherits="LoginMaster" %>
+
+<%@ Register Src="~/UserControl/ShowMessage.ascx" TagPrefix="uc1" TagName="ShowMessage" %>
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Login | EMMS</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="IT Team - AGS">
+    <meta name="copyright" content="IT Team">
+    <meta name="robots" content="noindex">
+
+    <!-- Styles -->
+    <link href="dist/styles.css" rel="stylesheet">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/icon.png">
+    <link rel="shortcut icon" href="img/icon.png">
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+            <asp:UpdatePanel ID="upLogin" runat="server" UpdateMode="Conditional">
+                <ContentTemplate>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="Server">
+                    </asp:ContentPlaceHolder>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <asp:UpdateProgress ID="UpdateProgress1" runat="server" AssociatedUpdatePanelID="upLogin" CssClass="FreezePaneOff">
+                <ProgressTemplate>
+                    <div id="progressBackgroundFilter"></div>
+                    <div id="processMessage">
+                        <div class="half-circle-spinner">
+                            <div class="circle circle-1"></div>
+                            <div class="circle circle-2"></div>
+                        </div>
+                    </div>
+                </ProgressTemplate>
+            </asp:UpdateProgress>
+            <uc1:ShowMessage runat="server" ID="ShowMessage" />
+        </div>
+    </form>
+
+    <!-- jQuery -->
+    <script src="//code.jquery.com/jquery-3.3.1.js"></script>
+    <script>window.jQuery || document.write('<script src="ext/jquery/jquery.min.js"><\/script>')</script>
+
+    <!-- Scripts -->
+    <script src="dist/bundle.js"></script>
+</body>
+</html>
+

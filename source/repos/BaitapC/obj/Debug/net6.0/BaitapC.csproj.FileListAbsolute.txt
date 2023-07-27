@@ -1,0 +1,15 @@
+C:\Users\quoc.nguyen\source\repos\BaitapC\obj\Debug\net6.0\BaitapC.csproj.AssemblyReference.cache
+C:\Users\quoc.nguyen\source\repos\BaitapC\obj\Debug\net6.0\BaitapC.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\quoc.nguyen\source\repos\BaitapC\obj\Debug\net6.0\BaitapC.AssemblyInfoInputs.cache
+C:\Users\quoc.nguyen\source\repos\BaitapC\obj\Debug\net6.0\BaitapC.AssemblyInfo.cs
+C:\Users\quoc.nguyen\source\repos\BaitapC\obj\Debug\net6.0\BaitapC.csproj.CoreCompileInputs.cache
+C:\Users\quoc.nguyen\source\repos\BaitapC\bin\Debug\net6.0\BaitapC.exe
+C:\Users\quoc.nguyen\source\repos\BaitapC\bin\Debug\net6.0\BaitapC.deps.json
+C:\Users\quoc.nguyen\source\repos\BaitapC\bin\Debug\net6.0\BaitapC.runtimeconfig.json
+C:\Users\quoc.nguyen\source\repos\BaitapC\bin\Debug\net6.0\BaitapC.dll
+C:\Users\quoc.nguyen\source\repos\BaitapC\bin\Debug\net6.0\BaitapC.pdb
+C:\Users\quoc.nguyen\source\repos\BaitapC\obj\Debug\net6.0\BaitapC.dll
+C:\Users\quoc.nguyen\source\repos\BaitapC\obj\Debug\net6.0\refint\BaitapC.dll
+C:\Users\quoc.nguyen\source\repos\BaitapC\obj\Debug\net6.0\BaitapC.pdb
+C:\Users\quoc.nguyen\source\repos\BaitapC\obj\Debug\net6.0\BaitapC.genruntimeconfig.cache
+C:\Users\quoc.nguyen\source\repos\BaitapC\obj\Debug\net6.0\ref\BaitapC.dll

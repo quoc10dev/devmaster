@@ -1,0 +1,48 @@
+/**
+ * Compact theme
+ */
+ .compact {
+  .btn-round {
+    padding: 8px 4px;
+    width: 25px;
+    height: 25px;
+  }
+
+  .card {
+    .card-title {
+      font-size: 1rem;
+    }
+
+    .card-icon,
+    .card-text {
+      padding: 10px;
+    }
+
+    .action {
+      button {
+        padding: 8px 10px;
+        min-width: auto;
+      }
+    }
+
+    .filter {
+      padding: 0px 10px 10px;
+    }
+  }
+
+  .table {
+    thead, tbody {
+      th, td {
+        font-size: 0.8rem;
+        line-height: 1.2;
+        padding: 5px;
+      }
+    }
+  }
+
+
+  .metismenu a {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}

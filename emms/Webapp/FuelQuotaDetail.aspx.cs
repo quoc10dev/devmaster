@@ -1,0 +1,278 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.UI;
+using BusinessLogic;
+using BusinessLogic.Helper;
+using BusinessLogic.Security;
+using DataAccess;
+
+public partial class FuelQuotaDetail : BasePage
+{
+    public override string FunctionPageCode
+    {
+        get
+        {
+            return FunctionCode.Fuel_Quota_Of_Equipment;
+        }
+    }
+
+    private int IDFuelQuota
+    {
+        get
+        {
+            if (ViewState["ID"] != null)
+                return Convert.ToInt32(ViewState["ID"]);
+            else if (Request.QueryString.AllKeys.Contains("ID"))
+            {
+                if (!string.IsNullOrEmpty(Request.QueryString["ID"]))
+                {
+                    int result = 0;
+                    int.TryParse(Request.QueryString["ID"], out result);
+                    ViewState["ID"] = result;
+                    return result;
+                }
+                else
+                    return 0;
+            }
+            else
+                return 0;
+        }
+    }
+
+    protected void Page_Load(object sender, EventArgs e)
+    {
+        try
+        {
+            if (!IsPostBack)
+            {
+                MasterPage.FunctionPageCode = FunctionPageCode;
+                SetMaxLength();
+
+                LoadEquipmentGroup();
+                LoadDetail();
+
+                btnSave.Enabled = FunctionManager.CheckUserHasRight(CurrentUserRight, RightCode.FuelQuota_Add) ||
+                                   FunctionManager.CheckUserHasRight(CurrentUserRight, RightCode.FuelQuota_Edit);
+
+                // Fix lỗi nhập số thập phân >1000 sai khi PostBack
+                btnSave.OnClientClick = "Control.Destroy('#" + formatControl.ClientID + "')";
+            }
+
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "SetFormatControls", "Control.Build(" + formatControl.ClientID + ")", true);
+        }
+        catch (Exception exc)
+        {
+            ShowMessage(this, exc.ToString(), MessageType.Error);
+        }
+    }
+
+    private void SetMaxLength()
+    {
+        txtSoLuongDinhMuc.MaxLength = 10;
+    }
+
+    private void LoadEquipmentGroup()
+    {
+        List<tblNhomTrangThietBi> equipGroupList = EquipmentGroupManager.GetAllEquipmentGroup();
+        tblNhomTrangThietBi emptyItem = new tblNhomTrangThietBi();
+        emptyItem.ID = 0;
+        emptyItem.TenNhom = "--- Chọn nhóm xe ---";
+        equipGroupList.Insert(0, emptyItem);
+
+        dlNhomXe.DataSource = equipGroupList;
+        dlNhomXe.DataTextField = "TenNhom";
+        dlNhomXe.DataValueField = "ID";
+        dlNhomXe.DataBind();
+    }
+
+    protected void dlNhomXe_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        LoadEquipmentType();
+    }
+
+    private void LoadEquipmentType()
+    {
+        try
+        {
+            //Load loại trang thiết bị
+            int idEquipmentGroup = 0;
+            if (int.TryParse(dlNhomXe.SelectedItem.Value, out idEquipmentGroup))
+                EquipmentTypeManager.LoadEquipmentType(dlLoaiTrangThietBi, idEquipmentGroup);
+        }
+        catch (Exception exc)
+        {
+            ShowMessage(this, exc.ToString(), MessageType.Error);
+        }
+    }
+
+    protected void dlLoaiTrangThietBi_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            int idEquipmentType = 0;
+            if (int.TryParse(dlLoaiTrangThietBi.SelectedItem.Value, out idEquipmentType))
+                LoadEquipment(idEquipmentType);
+        }
+        catch (Exception exc)
+        {
+            ShowMessage(this, exc.ToString(), MessageType.Error);
+        }
+    }
+
+    private void LoadEquipment(int idEquipmentType)
+    {
+        List<tblTrangThietBi> equipList = EquipmentManager.GetEquipmentByIDEquimentType(idEquipmentType);
+        tblTrangThietBi emptyItem = new tblTrangThietBi();
+        emptyItem.ID = 0;
+        emptyItem.Ten = "--- Chọn xe ---";
+        equipList.Insert(0, emptyItem);
+
+        dlTrangThietBi.DataSource = equipList;
+        dlTrangThietBi.DataTextField = "Ten";
+        dlTrangThietBi.DataValueField = "ID";
+        dlTrangThietBi.DataBind();
+
+        LoadDonViGhiNhanHoatDong();
+    }
+
+    protected void dlTrangThietBi_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            LoadDonViGhiNhanHoatDong();
+        }
+        catch (Exception exc)
+        {
+            ShowMessage(this, exc.ToString(), MessageType.Error);
+        }
+    }
+
+    private void LoadDonViGhiNhanHoatDong()
+    {
+        int idEquipmentType = 0;
+        if (int.TryParse(dlLoaiTrangThietBi.SelectedItem.Value, out idEquipmentType))
+        {
+            tblLoaiTrangThietBi loaiTrangThietBi = EquipmentTypeManager.GetEquipmentTypeById(idEquipmentType);
+            if (loaiTrangThietBi != null && !string.IsNullOrEmpty(loaiTrangThietBi.DonViGhiNhanHoatDong))
+            {
+                if (loaiTrangThietBi.DonViGhiNhanHoatDong.Equals(DonViGhiNhanHoatDong.Gio))
+                    lblDonViDinhMuc.Text = "Lít/giờ";
+                else if (loaiTrangThietBi.DonViGhiNhanHoatDong.Equals(DonViGhiNhanHoatDong.Km))
+                    lblDonViDinhMuc.Text = "Lít/km";
+            }
+        }
+    }
+
+    private void LoadDetail()
+    {
+        if (IDFuelQuota > 0)
+        {
+            lblAction.Text = "Edit";
+
+            tblDinhMucNhienLieu item = FuelQuotaManager.GetFuelQuotaById(IDFuelQuota);
+            if (item != null)
+            {
+                tblTrangThietBi equip = item.tblTrangThietBi;
+                if (equip != null)
+                {
+                    tblLoaiTrangThietBi equipType = equip.tblLoaiTrangThietBi;
+                    if (equipType != null && equipType.IDNhomTrangThietBi.HasValue)
+                    {
+                        dlNhomXe.SelectedValue = equipType.IDNhomTrangThietBi.Value.ToString();
+                        LoadEquipmentType();
+                        dlLoaiTrangThietBi.SelectedValue = equip.IDLoaiTrangThietBi.ToString();
+                        LoadEquipment(equip.IDLoaiTrangThietBi);
+                    }
+                }
+                dlTrangThietBi.SelectedValue = item.IDTrangThietBi.ToString();
+                txtSoLuongDinhMuc.Text = item.SoLuongDinhMuc.ToString();
+                txtNgayBatDauApDung.Text = string.Format("{0:dd/MM/yyyy}", item.NgayBatDauApDung);
+            }
+        }
+        else
+        {
+            lblAction.Text = "Add";
+            LoadEquipmentType();
+        }
+    }
+
+    protected void btnSave_Click(object sender, EventArgs e)
+    {
+        try
+        {
+            if (dlNhomXe.SelectedValue.Equals("0"))
+            {
+                ShowMessage(this, "Please select <b>Nhóm xe</b>", MessageType.Message);
+                return;
+            }
+
+            if (dlLoaiTrangThietBi.SelectedValue.Equals("0"))
+            {
+                ShowMessage(this, "Please select <b>Loại xe</b>", MessageType.Message);
+                return;
+            }
+
+            if (dlTrangThietBi.SelectedValue.Equals("0"))
+            {
+                ShowMessage(this, "Please select <b>Tên xe</b>", MessageType.Message);
+                return;
+            }
+
+            if (string.IsNullOrEmpty(txtSoLuongDinhMuc.Text.Trim()))
+            {
+                ShowMessage(this, "Please enter <b>Số lượng định mức</b>", MessageType.Message);
+                return;
+            }
+
+            double soLuongDinhMuc = 0;
+            if (!NumberHelper.ConvertToDouble(txtSoLuongDinhMuc.Text.Trim(), out soLuongDinhMuc))
+            {
+                ShowMessage(this, "Please enter <b>Số giờ/ số km</b> is a number", MessageType.Message);
+                return;
+            }
+
+            if (soLuongDinhMuc <= 0)
+            {
+                ShowMessage(this, "Please enter <b>Số lượng định mức</b> is greater than 0", MessageType.Message);
+                return;
+            }
+
+            DateTime ngayBatDauApDung = DateTime.MinValue;
+            if (string.IsNullOrEmpty(txtNgayBatDauApDung.Text.Trim()) || txtNgayBatDauApDung.Text.Trim().Equals("__/__/____"))
+            {
+                ShowMessage(this, "Please enter <b>Ngày bắt đầu áp dụng</b> is a datetime", MessageType.Message);
+                return;
+            }
+            else if (!DateTimeHelper.ConvertStringToDateTime(txtNgayBatDauApDung.Text.Trim(), out ngayBatDauApDung))
+            {
+                ShowMessage(this, "Error convert <b>Ngày bắt đầu áp dụng</b> to datetime", MessageType.Message);
+                return;
+            }
+
+            if (IDFuelQuota > 0)
+            {
+                tblDinhMucNhienLieu item = new tblDinhMucNhienLieu();
+                item.ID = IDFuelQuota;
+                item.IDTrangThietBi = int.Parse(dlTrangThietBi.SelectedValue);
+                item.SoLuongDinhMuc = soLuongDinhMuc;
+                item.NgayBatDauApDung = ngayBatDauApDung;
+                FuelQuotaManager.UpdateFuelQuota(item);
+            }
+            else
+            {
+                tblDinhMucNhienLieu newItem = new tblDinhMucNhienLieu();
+                newItem.IDTrangThietBi = int.Parse(dlTrangThietBi.SelectedValue);
+                newItem.SoLuongDinhMuc = soLuongDinhMuc;
+                newItem.NgayBatDauApDung = ngayBatDauApDung;
+                FuelQuotaManager.InsertFuelQuota(newItem);
+            }
+            
+            Response.Redirect("FuelQuota.aspx");
+        }
+        catch (Exception exc)
+        {
+            ShowMessage(this, exc.ToString(), MessageType.Error);
+        }
+    }
+}

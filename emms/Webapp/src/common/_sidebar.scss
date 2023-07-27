@@ -1,0 +1,303 @@
+// Sidebar customs
+$nav-icon-width: 2rem;
+$nav-mini-width: $nav-icon-width + $navdrawer-inner-spacer-x*2;
+
+$navdrawer-nav-link-color: white;
+$navdrawer-nav-link-color-active: white;
+$navdrawer-nav-link-color-disabled: grey;
+$navdrawer-nav-link-bg-hover: rgba(128,128,128,0.5);
+$navdrawer-nav-link-bg-active: transparentize(theme-color(primary),.3);
+$navdrawer-content-bg: transparent;
+$navdrawer-divider-bg: rgba(128,128,128,0.5);
+
+
+#sidebar {
+  @include transition-sharp(box-shadow, transform);
+  
+  background-color: $navdrawer-content-bg;
+  box-shadow: map-get($navdrawer-elevation-shadow, shadow);
+  max-width: calc(100% - #{$navdrawer-gutter-width});
+  top: 0;
+  bottom: 0;
+  left: 0;
+  pointer-events: auto;
+  transform: translate3d(-100%, 0, 0);
+  width: $navdrawer-width;
+  z-index: map-get($navdrawer-elevation-shadow, elevation);
+
+  & ~ main {
+    transition: all 0.3s ease;
+  }
+
+  &.is-open {
+    @include transition-deceleration(box-shadow, transform);
+    transform: translate3d(0, 0, 0);
+  }
+
+  @include media-breakpoint-up(md) {
+    &.is-open ~ main {
+      margin-left: $navdrawer-width;
+    }
+
+    &.is-hoverable {
+      transform: translate3d(0, 0, 0);
+      transition: all 0.3s ease;
+      width: $nav-mini-width;
+
+      .nav-title {
+        transition: transform 0.3s ease, opacity 0.3s ease;
+        opacity: 0;
+        transform: translate3d(-1rem, 0, 0);
+      }
+
+      a.has-arrow::after {
+        transition: opacity 0.15s ease;
+        opacity: 0;
+      }
+ 
+      /*
+      ul.collapse.in {
+        display: none;
+      }
+      */
+
+      .toggler {
+        display: none;
+      }
+
+      &:hover {
+        width: $navdrawer-width;
+
+        .nav-title {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+        }
+
+        a.has-arrow::after {
+          opacity: 1;
+        }
+
+        /*
+        ul.collapse.in {
+          display: block;
+        }
+        */
+
+        .toggler {
+          display: block;
+        }
+      }
+    }
+
+    &.is-hoverable ~ main {
+      margin-left: $nav-mini-width;
+    }
+  }
+
+  &:before {
+    display: block;
+    position: absolute;
+    background: #000;
+    opacity: .8;
+    content: "";
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:after {
+    position: absolute;
+    background-image: url(../img/ags.jpg);
+    background-size: cover;
+    background-position: center center;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+}
+
+.side-divider {
+  @include nav-divider($navdrawer-divider-bg);
+  margin-left: $navdrawer-inner-spacer-x;
+  margin-right: $navdrawer-inner-spacer-x;
+}
+
+.side-content {
+  padding: 0 $navdrawer-inner-spacer-x/2;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  .side-header + & {
+    margin-top: 0;
+  }
+
+  .has-icon {
+    display: inline-flex;
+    flex: 0 0 $nav-icon-width;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.7em;
+    width: $nav-icon-width;
+    margin-right: 1rem;
+
+    i {
+      font-size: inherit;
+      line-height: 1;
+    }
+
+    .text-icons {
+      font-size: 1rem;
+      font-weight: normal;
+      font-style: normal;
+    }
+  }
+
+  .side-divider {
+    margin-left: $navdrawer-inner-spacer-x/2;
+    margin-right: $navdrawer-inner-spacer-x/2;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.side-header {
+  position: relative;
+  display: block;
+  margin-top: $navdrawer-inner-spacer-y;
+  margin-bottom: 0;
+  padding: $toolbar-padding-y $navdrawer-inner-spacer-x;
+  overflow: hidden;
+
+  .logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color: $navdrawer-nav-link-color;
+    white-space: nowrap;
+    text-decoration: none;
+
+    img {
+      background: #fff;
+      border-radius: 3px;
+      width: $nav-icon-width;
+      height: $nav-icon-width;
+      margin-right: 1rem;
+      padding: 1px;
+    }
+  }
+
+  .toggler {
+    position: absolute;
+    display: block;
+    right: $navdrawer-inner-spacer-x;
+    top: $toolbar-padding-y;
+    background: transparent;
+    border-radius: 2.3rem;
+    cursor: pointer;
+    font-size: 0.7rem;
+    height: 2.3rem;
+    width: 2.3rem;
+    outline: none;
+
+    i {
+      color: $navdrawer-nav-link-color;
+      line-height: 1;
+    }
+  }
+}
+
+.side-user {
+  .has-arrow {
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+  }
+
+  .has-icon {
+    font-size: 2.2rem;
+    color: $navdrawer-nav-link-color;
+  }
+
+  .metismenu {
+    a.active,
+    a:active,
+    .active > a {
+      color: $navdrawer-nav-link-color;
+    }
+  }
+}
+
+.metismenu {
+  display: flex;
+  flex-direction: column;
+
+  & > li {
+    position: relative;
+  }
+
+  a {
+    @include text-truncate;
+    @include transition-standard(background-color, color);
+
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    outline-width: 0;
+    transition: all 0.3s ease-out;
+    
+    border-radius: 3px;
+    color: $navdrawer-nav-link-color;
+    font-size: $navdrawer-nav-link-font-size;
+    font-weight: $navdrawer-nav-link-font-weight;
+    line-height: 1;
+    padding: (($navdrawer-nav-link-height - $navdrawer-nav-link-font-size) / 2) $navdrawer-inner-spacer-x/2;
+
+    @include active-focus-hover {
+      background-color: $navdrawer-nav-link-bg-hover;
+      text-decoration: none;
+    }
+
+    &.disabled {
+      background-color: transparent;
+      color: $navdrawer-nav-link-color-disabled;
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  .active > a {
+    background-color: $navdrawer-nav-link-bg-active;
+    color: $navdrawer-nav-link-color-active;
+
+    &.has-arrow {
+      background-color: $navdrawer-nav-link-bg-hover;
+      color: $navdrawer-nav-link-color;
+    }
+  }
+
+  /*
+  ul a {
+    padding-left: $navdrawer-inner-spacer-x*4;
+
+    ul a {
+      padding-left: $navdrawer-inner-spacer-x*6;
+    }
+  }
+  */
+}
