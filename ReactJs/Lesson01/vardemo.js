@@ -13,4 +13,4 @@ function varDemo() {
 
 varDemo();
 console.log("Gia tri X ngoai ham: ", x);
-console.log("Gia tri y ngoai ham: ", y);
+// console.log("Gia tri y ngoai ham: ", y);
