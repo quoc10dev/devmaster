@@ -1,0 +1,8 @@
+C:\Users\quoc.nguyen\dev2303\source\repos\Lesson04\obj\Debug\Lesson04.csproj.AssemblyReference.cache
+C:\Users\quoc.nguyen\dev2303\source\repos\Lesson04\obj\Debug\Lesson04.csproj.SuggestedBindingRedirects.cache
+C:\Users\quoc.nguyen\dev2303\source\repos\Lesson04\obj\Debug\Lesson04.csproj.CoreCompileInputs.cache
+C:\Users\quoc.nguyen\dev2303\source\repos\Lesson04\bin\Debug\Lesson04.exe.config
+C:\Users\quoc.nguyen\dev2303\source\repos\Lesson04\bin\Debug\Lesson04.exe
+C:\Users\quoc.nguyen\dev2303\source\repos\Lesson04\bin\Debug\Lesson04.pdb
+C:\Users\quoc.nguyen\dev2303\source\repos\Lesson04\obj\Debug\Lesson04.exe
+C:\Users\quoc.nguyen\dev2303\source\repos\Lesson04\obj\Debug\Lesson04.pdb

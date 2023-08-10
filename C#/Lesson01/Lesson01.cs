@@ -36,8 +36,22 @@ namespace ConsoleApp5
             Console.WriteLine("  +++++      ++++      ++++      ++++");
             Console.WriteLine("   +++++++++++++      ++++      ++++");
             Console.WriteLine("     +++++++++  ");
-            Console.ReadLine();
+         
 
+            Student student = new Student();
+            student.Display();
+
+            Console.WriteLine("////////////////////////////////////");
+
+            napchong nap = new napchong();
+            int r = nap.Sum(10);
+            Console.WriteLine("Tong: " + r);
+
+            int a = nap.Add(3, 5);
+            Console.WriteLine(a);
+
+            Console.ReadLine();
         }
     }
 }
+
