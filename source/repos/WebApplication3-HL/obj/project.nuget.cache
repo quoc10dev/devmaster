@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "uOlTgMUgbSox1RRr8r2YBPQ+3TxCoeQcyEdvo4iu+4jRMu/L+bAfvILJ4MuEVQI8KSvKF1qqjVza45bpypK9yg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\quoc.nguyen\\dev2303\\source\\repos\\WebApplication3-HL\\WebApplication3-HL.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\quoc.nguyen\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.16\\microsoft.windowsdesktop.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\quoc.nguyen\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.16\\microsoft.netcore.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\quoc.nguyen\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.16\\microsoft.aspnetcore.app.ref.6.0.16.nupkg.sha512",
+    "C:\\Users\\quoc.nguyen\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.16\\microsoft.netcore.app.host.win-x64.6.0.16.nupkg.sha512"
+  ],
+  "logs": []
+}
