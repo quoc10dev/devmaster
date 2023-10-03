@@ -22,9 +22,7 @@ namespace Les08.Areas.Admin.Controllers
         // GET: Admin/Categories
         public async Task<IActionResult> Index()
         {
-              return _context.Categories != null ? 
-                          View(await _context.Categories.ToListAsync()) :
-                          Problem("Entity set 'AppDbContext.Categories'  is null.");
+              return View(await _context.Categories.ToListAsync());
         }
 
         // GET: Admin/Categories/Details/5
@@ -47,16 +45,16 @@ namespace Les08.Areas.Admin.Controllers
 
         // GET: Admin/Categories/Create
         public IActionResult Create()
-        {
+            {
             return View();
-        }
+         }
 
         // POST: Admin/Categories/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Status,CreatedDate,Image,Description")] Category category)
+        public async Task<IActionResult> Create([Bind("Id,Name,Status,CreateDate,Image,Description")] Category category)
         {
             if (ModelState.IsValid)
             {
@@ -88,7 +86,7 @@ namespace Les08.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Status,CreatedDate,Image,Description")] Category category)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Status,CreateDate,Image,Description")] Category category)
         {
             if (id != category.Id)
             {
@@ -157,7 +155,7 @@ namespace Les08.Areas.Admin.Controllers
 
         private bool CategoryExists(int id)
         {
-          return (_context.Categories?.Any(e => e.Id == id)).GetValueOrDefault();
+          return _context.Categories.Any(e => e.Id == id);
         }
     }
 }

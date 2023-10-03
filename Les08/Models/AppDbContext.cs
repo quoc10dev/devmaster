@@ -16,15 +16,15 @@ namespace Les08.Models
         public DbSet<OrderDetail> OrderDetails { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // khai báo thêm ràng buộc UNIQUE
-            modelBuilder.Entity<Category>()
-            .HasIndex(c => c.Name)
-            .IsUnique();
-            // khai báo khóa chính trên nhiều trường cho bảng OrderDetail
+            //// khai báo thêm ràng buộc UNIQUE
+            //modelBuilder.Entity<Category>()
+            //.HasIndex(c => c.Name)
+            //.IsUnique();
+            //// khai báo khóa chính trên nhiều trường cho bảng OrderDetail
+            ////modelBuilder.Entity<OrderDetail>()
+            //// .HasKey(c => new { c.OrderId, c.ProductId })
             //modelBuilder.Entity<OrderDetail>()
-            // .HasKey(c => new { c.OrderId, c.ProductId })
-            modelBuilder.Entity<OrderDetail>()
-            .HasIndex(c => new { c.OrderId, c.ProductId }).IsUnique();
+            //.HasIndex(c => new { c.OrderId, c.ProductId }).IsUnique();
         }
     }
 }
