@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CSM Login</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="~/plugin/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="~/dist/css/adminlte.min.css" />
+    <style>
+        body{
+            background-image: url("../images/ags.jpg");
+            background-size:cover;
+            background-position: 50%;
+        }
+
+        .login-logo a, .register-logo a{
+            color: white;
+        }
+    </style>
+</head>
+<body class="hold-transition login-page">
+    <div style="width:100%;height:100%;z-index:-1;position:absolute;background-color:#00000080"></div>
+    <div>
+        @RenderBody()
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/dist/js/adminlte.min.js" asp-append-version="true"></script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CMS</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CMS.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link rel="stylesheet" href="~/plugin/fontawesome/css/all.min.css" />
+
+    <link rel="stylesheet" href="~/plugin/datatables/css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" href="~/lib/choices.js-10.2.0/css/choices.min.css" />
+    <link rel="stylesheet" href="~/lib/SweetAlert2/css/sweetalert2.min.css" />
+    <link rel="stylesheet" href="~/lib/datepicker/css/daterangepicker.css" />
+    @RenderSection("Style",false)
+    <link rel="stylesheet" href="~/dist/css/adminlte.min.css" />
+    <link rel="stylesheet" href="~/genecss/some-style.css" />
+</head>
+<body class="hold-transition sidebar-mini layout-navbar-fixed layout-fixed layout-footer-fixed light-mode">
+    <div class="wrapper">
+  <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-dark">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a asp-action="Index" asp-controller="Home" class="nav-link">Home</a>
+      </li>
+        <li style="visibility:hidden" class="nav-item d-none d-sm-inline-block">
+            <a class="nav-link">Contact</a>
+        </li>
+    </ul>
+    <ul style="margin:0 auto" class="navbar-nav">
+        <li class="nav-item">
+            <a asp-action="Index" asp-controller="Home" style="font-size:18px;font-weight:bold" class="nav-link">Quản Lý Đào Tạo | CMS</a>
+        </li>
+    </ul>
+    <!-- Right navbar links -->
+    <ul class="navbar-nav ml-auto">
+      <!-- Messages Dropdown Menu -->
+      <li class="nav-item">
+        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+          <i class="fas fa-expand-arrows-alt"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" asp-controller="App" asp-action="Logout" role="button">Logout <i class="fas fa-power-off ms-1"></i></a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a asp-action="Index" asp-controller="Home" class="brand-link d-flex justify-content-center">
+      <img src="~/logo/ags_logo.png" alt="CMS" class="brand-image img-circle elevation-3" style="border-radius:0px;box-shadow:none !important;margin-left:0;margin-right:0;">
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar user (optional) -->
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+          <img src="~/icon/user-icon.png" class="img-circle" alt="User Image">
+        </div>
+        <div class="info">
+          <a asp-controller="App" asp-action="ChangePass" class="d-block">@User.Identity.Name</a>
+        </div>
+      </div>
+
+           <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item">
+            <a asp-action="Index" asp-controller="Home" class="nav-link">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Dashboard                
+              </p>
+            </a>           
+          </li>
+          <!---Ho so dao tao-->
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Hồ sơ đào tạo
+                <i class="fas fa-angle-left right"></i>
+                
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a asp-controller="QuyetDinh" asp-action="QuyetDinhList" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Quyết định</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a asp-controller="KhoaHoc" asp-action="KhoaHocList" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Khóa học</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a asp-controller="ChungChi" asp-action="ChungChiList" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Chứng chỉ</p>
+                </a>
+              </li>
+            
+            </ul>
+          </li>
+          <!--Hồ sơ nhân viên-->
+          <li class="nav-item">
+            <a asp-controller="NhanVien" asp-action="NhanVienList" class="nav-link">
+              <i class="nav-icon far fa-user"></i>
+              <p>
+                Hồ sơ nhân viên
+              </p>
+            </a>           
+          </li>
+
+            <!---Đơn vị dao tao-->
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>
+                  Đơn vị đào tạo
+                  <i class="fas fa-angle-left right"></i>
+                  
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a asp-action="DVDTList" asp-controller="DVDT" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Danh sách đơn vị</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a asp-controller="GiaoVien" asp-action="GiaoVienList" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Danh sách giáo viên</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Hợp đồng đào tạo</p>
+                  </a>
+                </li>
+              </ul>
+                 <!--  end đơn vị đào tạo -->
+
+                   <!---Báo cáo-->
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon fas fa-copy"></i>
+                <p>
+                  Báo cáo
+                  <i class="fas fa-angle-left right"></i>
+                  
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Báo cáo A</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Báo cáo B</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Báo cáo C</p>
+                  </a>
+                </li>
+                </ul>
+                  <!---Quản trị-->
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-sliders-h"></i>
+                <p>
+                  Trang Quản lý
+                  <i class="fas fa-angle-left right"></i>
+                  
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>User</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Role</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Config</p>
+                  </a>
+                </li>
+              
+              </ul>
+            </li>
+        </ul> 
+        
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+   
+
+
+    <!-- Main content -->
+            @RenderBody()
+
+
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+<footer class="main-footer">
+    <div class="float-right d-none d-sm-block">
+      <b>Version</b> 1.0.0
+    </div>
+    <strong>Copyright &copy; 2023-2024. <a href="#">IT AGS - 0911855976</a>.</strong> All rights reserved.
+  </footer>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+  </aside>
+  <!-- /.control-sidebar -->
+</div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/dist/js/adminlte.min.js" asp-append-version="true"></script>
+
+    <script src="~/plugin/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="~/plugin/datatables/js/dataTables.bootstrap5.min.js"></script>
+    <script src="~/lib/choices.js-10.2.0/js/choices.min.js"></script>
+    <script src="~/lib/SweetAlert2/js/sweetalert2.all.min.js"></script>
+    <script src="~/lib/datepicker/js/moment.min.js"></script>
+    <script src="~/lib/datepicker/js/daterangepicker.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.sidebar nav *[data-widget="treeview"]').children("li").each(function(){
+                $(this).find("a").each(function(){
+                    let currentTab = location.pathname.split("/")[1];
+                    let aHref = $(this).attr("href").split("/")[1];
+                    if(currentTab === aHref){
+                        $(this).addClass("active");
+                        if ($(this).parent().parent().parent("li").length){
+                            $(this).parent().parent().parent().addClass("menu-open");
+                            $(this).parent().parent().parent().children("a:first-child").addClass("active");
+                        }
+                      
+                    }
+                });
+            });
+        });
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

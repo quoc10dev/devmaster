@@ -1,0 +1,152 @@
+﻿@model ModelHolder
+
+@section Style{
+    <link rel="stylesheet" href="~/genecss/single-choices-input.css" />
+    <style>
+        #quyetdinh-info-container{
+            height:300px;
+        }
+    </style>
+}
+
+<div class="container-fluid pt-5 ps-3">
+    <div id="quyetdinh-info-container" style="padding-left:20px">
+        <h3 class="mb-4">Hồ sơ Quyết Định</h3>
+        <form method="post" asp-action="EditQuyetDinh" enctype="multipart/form-data">
+            <input type="hidden" asp-for="EditQuyetDinh.QuyetDinh.Id" value="@Model.QuyetDinh.Id" />
+            <div class="row">
+                <div class="col-4">
+                    <label class="form-label" asp-for="EditQuyetDinh.QuyetDinh.SoQuyetDinh">Số quyết định</label>
+                    <input class="form-control" asp-for="EditQuyetDinh.QuyetDinh.SoQuyetDinh" type="text" value="@Model.QuyetDinh.SoQuyetDinh" />
+                    <span asp-validation-for="EditQuyetDinh.QuyetDinh.SoQuyetDinh" class="text-danger"></span>
+                </div>
+                <div class="col-4">
+                    <label class="form-label" asp-for="EditQuyetDinh.QuyetDinh.NgayQuyetDinh">Ngày quyết định</label>
+                    <input class="form-control" asp-for="EditQuyetDinh.QuyetDinh.NgayQuyetDinh" id="input-ngay-quyetdinh" type="text" />
+                </div>
+                <div class="col-4">
+                    <label class="form-label">Đơn vị đào tạo</label>
+                    <select id="donvi-list-select-editqd" data-trigger="">
+                        <option placeholder="" value="0">Chọn đơn vị</option>
+                        @foreach(var donvi in Model.DVDTs)
+                        {
+                            if(Model.QuyetDinh.IdDonViDaoTao == donvi.Id)
+                            {
+                                <option selected value="@donvi.Id">@donvi.TenDonViDaoTao</option>
+                            }else
+                            {
+                                <option value="@donvi.Id">@donvi.TenDonViDaoTao</option>
+                            }
+
+                        }
+                    </select>
+                    <span asp-validation-for="EditQuyetDinh.QuyetDinh.IdDonViDaoTao" class="text-danger"></span>
+                    <input id="input-iddonvi-editqd" asp-for="EditQuyetDinh.QuyetDinh.IdDonViDaoTao" value="@Model.QuyetDinh.IdDonViDaoTao" type="hidden" />
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-8">
+                    <label class="form-label">File quyết định</label>
+                    <input id="input-filename-quyetdinh-edit" readonly value='@((Model.QuyetDinh.AnhQuyetDinh.Split("/")).Last())' class="form-control" />
+                    <input value="@Model.QuyetDinh.AnhQuyetDinh" asp-for="EditQuyetDinh.QuyetDinh.AnhQuyetDinh" type="hidden" />
+                </div>
+                <div class="col-4 d-flex align-items-end">
+                    @if (Model.EditQuyetDinh.isRemoveFile)
+                    {
+                        <input type="checkbox" hidden id="cbx-remove-fileqd" asp-for="EditQuyetDinh.isRemoveFile" checked />
+                    }
+                    else
+                    {
+                        <input type="checkbox" hidden id="cbx-remove-fileqd" asp-for="EditQuyetDinh.isRemoveFile" />
+                    }
+
+                    <div><button id="btn-huydoifile" style="display:none" type="button" onclick="huydoifile()" class="btn btn-danger">Hủy thay đổi</button></div>
+                    <div>
+                        <label onclick="emptyFileIfNoFileSelected()" class="btn btn-success mx-3 mb-0" for="input-file-quyetdinh-edit">Đổi file</label>
+                        <input type="file" hidden id="input-file-quyetdinh-edit" asp-for="EditQuyetDinh.AnhQD" />
+                    </div>
+                    @if (Model.QuyetDinh.AnhQuyetDinh != "")
+                    {
+                        <div id="button-xemfileqd"><a href="..@Model.QuyetDinh.AnhQuyetDinh" class="btn btn-warning" target="_blank">Xem file</a></div>
+                    }
+                    else
+                    {
+                        <div id="button-xemfileqd" style="display:none"><a href="..@Model.QuyetDinh.AnhQuyetDinh" class="btn btn-warning" target="_blank">Xem file</a></div>
+                    }
+
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 d-flex justify-content-center">
+                    <div><button type="submit" class="btn btn-primary">Lưu lại</button></div>
+                </div>
+            </div>
+        </form>
+    </div>
+    
+    <h3 class="mb-4" style="margin-left:20px;">Danh Sách Khóa Học</h3>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <div class="ms-5 align-self-start"><button onclick="btnThemKhoaHocClick(@Model.QuyetDinh.Id)" class="btn btn-success">Thêm Khóa Học <i class="fas fa-plus ms-1"></i></button></div>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="table-khoahocs" class="table">
+                        <thead>
+                            <tr>
+                                <th>Tên khóa</th>
+                                <th>Ngày bắt đầu</th>
+                                <th>Ngày kết thúc</th>
+                                <th>Giáo viên</th>
+                                <th>Số học viên</th>
+                                <th class="text-center">Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var kh in Model.QuyetDinh.KhoaHocs)
+                            {
+                                <tr>
+                                    <td>@kh.ChungChi.TenChungChi</td>
+                                    <td>@kh.NgayBatDau.ToShortDateString()</td>
+                                    <td>@kh.NgayKetThuc.ToShortDateString()</td>
+                                    <td>@kh.GiaoVien.TenGV</td>
+                                    <td>@kh.CapChungChis.Count</td>
+                                    <td>
+                                        <div class="d-flex justify-content-center">
+                                            <button onclick="openKhoaHocDetailPage(@kh.Id)" class="btn btn-success me-2 btn-sm btn-circle"><i class="fas fa-info-circle"></i></button>
+                                            <button class="btn btn-danger btn-sm btn-circle"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        const invalidEditModel = '@TempData["InvalidEditModel"]';
+        const prefileName = '@Model.QuyetDinh.AnhQuyetDinh.Split("/").Last()';
+        $('#input-ngay-quyetdinh').daterangepicker({
+            singleDatePicker: true,
+            autoApply: true,
+            applyButtonClasses: false,
+            autoUpdateInput: true,
+            startDate: '@Model.QuyetDinh.NgayQuyetDinh.ToShortDateString()',
+            locale: {
+                format: 'DD/MM/YYYY'
+            }
+        }, function (start) {
+            $('#input-ngay-quyetdinh').val(start.format('DD/MM/YYYY'));
+        });
+    </script>
+    <script src="~/js/QuyetDinhDetail.js"></script>
+}

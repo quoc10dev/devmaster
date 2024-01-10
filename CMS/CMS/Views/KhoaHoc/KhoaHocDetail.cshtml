@@ -1,0 +1,344 @@
+﻿@model ModelHolder
+
+@section Style{
+    <link rel="stylesheet" href="~/genecss/single-choices-input.css" />
+    <style>
+
+    </style>
+}
+
+<div class="container-fluid pt-5">
+    <div id="khoahoc-form-container" style="padding-left:20px" class="container-fluid">
+        <h3 class="mb-4">Hồ Sơ Khóa Học</h3>
+        <form method="post" asp-action="EditKhoaHoc">
+            <input asp-for="KhoaHoc.Id" type="hidden" />
+            <div class="row">
+                <div class="col-4">
+                    <label class="form-label">Quyết định số</label>
+                    <select id="quyetdinh-list-select" data-trigger="">
+                        <option value="0" placeholder="">Chọn quyết định</option>
+                        @foreach (var qd in Model.QuyetDinhs)
+                        {
+                            if (Model.KhoaHoc.IdQuyetDinh == qd.Id)
+                            {
+                                <option selected value="@qd.Id">@qd.SoQuyetDinh</option>
+                            }
+                            else
+                            {
+                                <option value="@qd.Id">@qd.SoQuyetDinh</option>
+                            }
+                        }
+                    </select>
+                    <span asp-validation-for="KhoaHoc.IdQuyetDinh" class="text-danger"></span>
+                    <input id="input-id-quyetdinh" type="hidden" asp-for="KhoaHoc.IdQuyetDinh" value="@Model.KhoaHoc.IdQuyetDinh" />
+                </div>
+                <div class="col-4">
+                    <label class="form-label">Chứng chỉ</label>
+                    <select id="chungchi-list-select" data-trigger="">
+                        <option value="0" placeholder="">Chọn chứng chỉ</option>
+                        @foreach (var cc in Model.ChungChis)
+                        {
+                            if (Model.KhoaHoc.IdChungChi == cc.Id)
+                            {
+                                <option selected value="@cc.Id">@cc.TenChungChi</option>
+                            }
+                            else
+                            {
+                                <option value="@cc.Id">@cc.TenChungChi</option>
+                            }
+                        }
+                    </select>
+                    <span asp-validation-for="KhoaHoc.IdChungChi" class="text-danger"></span>
+                    <input id="input-id-chungchi" type="hidden" asp-for="KhoaHoc.IdChungChi" value="@Model.KhoaHoc.IdChungChi" />
+                </div>
+                <div class="col-2">
+                    <label class="form-label" asp-for="KhoaHoc.NgayKetThuc">Ngày bắt đầu</label>
+                    <input type="text" asp-for="KhoaHoc.NgayBatDau" class="form-control" id="input-start-date" />
+                </div>
+                <div class="col-2">
+                    <label class="form-label" asp-for="KhoaHoc.NgayKetThuc">Ngày kết thúc</label>
+                    <input type="text" asp-for="KhoaHoc.NgayKetThuc" class="form-control" id="input-end-date" />
+                </div>
+            </div>
+            <div class="row my-4">
+                <div class="col-4">
+                    <label class="form-label">Giáo viên</label>
+                    <select id="giaovien-list-select" data-trigger="">
+                        <option value="0" placeholder="">Chọn giáo viên</option>
+                        @foreach (var gv in Model.GiaoViens)
+                        {
+                            if (Model.KhoaHoc.IdGiaoVien == gv.Id)
+                            {
+                                <option selected value="@gv.Id">@gv.TenGV</option>
+                            }
+                            else
+                            {
+                                <option value="@gv.Id">@gv.TenGV</option>
+                            }
+                        }
+                    </select>
+                    <span asp-validation-for="KhoaHoc.IdGiaoVien" class="text-danger"></span>
+                    <input id="input-id-giaovien" type="hidden" asp-for="KhoaHoc.IdGiaoVien" value="@Model.KhoaHoc.IdGiaoVien" />
+                </div>
+                <div class="col-2">
+                    <label class="form-label" asp-for="KhoaHoc.ExpMonth">Thời gian hiệu lực (tháng)</label>
+                    <input class="form-control" asp-for="KhoaHoc.ExpMonth" type="number" />
+                    <span asp-validation-for="KhoaHoc.ExpMonth" class="text-danger"></span>
+                </div>
+                <div class="col-2">
+                    <label class="form-label" asp-for="KhoaHoc.DiaDiem">Địa điểm</label>
+                    <input class="form-control" asp-for="KhoaHoc.DiaDiem" type="text" />
+                </div>
+                <div class="col-4">
+                    <label class="form-label" asp-for="KhoaHoc.GhiChu">Ghi chú</label>
+                    <input class="form-control" asp-for="KhoaHoc.GhiChu" type="text" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary">Lưu lại</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div style="padding-left:20px" class="container-fluid my-4">
+        <div id="add-card" class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Thêm Học Viên</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data" asp-action="CreateCapCC">
+                    <input type="hidden" asp-for="CreateCapCC.CapCC.IdKhoaHoc" value="@Model.KhoaHoc.Id" />
+                    <div class="row">
+                        <div class="col-6">
+                            <label class="form-label">Nhân viên</label>
+                            <select id="nhanvien-list-select" data-trigger="">
+                                <option value="0" placeholder="">Chọn nhân viên</option>
+                                @foreach (var nv in Model.NhanViens)
+                                {
+                                    if (Model.CreateCapCC.CapCC.IdNhanVien == nv.Id)
+                                    {
+                                        <option selected value="@nv.Id">@nv.MaNV|@nv.TenNV|@nv.NgaySinh.Value.ToShortDateString()</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@nv.Id">@nv.MaNV|@nv.TenNV|@nv.NgaySinh.Value.ToShortDateString()</option>
+                                    }
+                                }
+                            </select>
+                            <span asp-validation-for="CreateCapCC.CapCC.IdNhanVien" class="text-danger"></span>
+                            <input id="input-id-nhanvien" asp-for="CreateCapCC.CapCC.IdNhanVien" type="hidden" value="@Model.CreateCapCC.CapCC.IdNhanVien" />
+                        </div>
+                        <div class="col-4">
+                            <label class="form-label">Loại hình đào tạo</label>
+                            <select id="loaidaotao-list-select" data-trigger="">
+                                <option value="0" placeholder="">Chọn loại đào tạo</option>
+                                @foreach (var loaidt in Model.LoaiDaoTaos)
+                                {
+                                    if (Model.CreateCapCC.CapCC.IdLoaiDaoTao == loaidt.Id)
+                                    {
+                                        <option selected value="@loaidt.Id">@loaidt.TenLoaiDaoTao</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@loaidt.Id">@loaidt.TenLoaiDaoTao</option>
+                                    }
+                                }
+                            </select>
+                            <span asp-validation-for="CreateCapCC.CapCC.IdLoaiDaoTao" class="text-danger"></span>
+                            <input id="input-id-loaidaotao" asp-for="CreateCapCC.CapCC.IdLoaiDaoTao" type="hidden" value="@Model.CreateCapCC.CapCC.IdLoaiDaoTao" />
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <label asp-for="CreateCapCC.AnhCC" class="form-label">File chứng chỉ (PDF)</label>
+                            <input id="input-file-chungchi" asp-for="CreateCapCC.AnhCC" type="file" class="form-control" />
+                        </div>
+                        <div class="col-4">
+                            <label class="form-label" asp-for="CreateCapCC.CapCC.GhiChu">Ghi chú</label>
+                            <input class="form-control" asp-for="CreateCapCC.CapCC.GhiChu" />
+                        </div>
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12 d-flex justify-content-center">
+                            <div><button type="submit" class="btn btn-primary">Thêm vào</button></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div> 
+    </div>
+
+    <div style="padding-left:20px;display:none" class="container-fluid mb-4">
+        <div id="edit-card" class="card card-danger">
+            <div class="card-header">
+                <h3 class="card-title">Edit Học Viên</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                        <i class="fas fa-minus"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data" asp-action="EditCapCC">
+                    <input type="hidden" asp-for="EditCapCC.CapCC.IdKhoaHoc" value="@Model.KhoaHoc.Id" />
+                    <div class="row">
+                        <div class="col-6">
+                            <label class="form-label">Nhân viên</label>
+                            @if (Model.EditCapCC.CapCC.NhanVien != null)
+                            {
+                                <input asp-for="EditCapCC.CapCC.NhanVien.TenNV" class="form-control" readonly id="input-tennhanvien-edit" placeholder="Chưa chọn nhân viên..." value="@Model.EditCapCC.CapCC.NhanVien.TenNV" />
+
+                            }else{
+                                <input asp-for="EditCapCC.CapCC.NhanVien.TenNV" class="form-control" readonly id="input-tennhanvien-edit" placeholder="Chưa chọn nhân viên..." />
+                            }
+                            <input asp-for="EditCapCC.CapCC.NhanVien.IdChucDanh" value="-1" type="hidden" />
+                            <input asp-for="EditCapCC.CapCC.NhanVien.IdPhongBan" value="-1" type="hidden" />
+                            <span asp-validation-for="EditCapCC.CapCC.IdNhanVien" class="text-danger"></span>
+                            <input id="input-id-nhanvien-edit" asp-for="EditCapCC.CapCC.IdNhanVien" type="hidden" value="@Model.EditCapCC.CapCC.IdNhanVien" />
+                        </div>
+                        <div class="col-4">
+                            <label class="form-label">Loại hình đào tạo</label>
+                            <select id="loaidaotao-list-select-edit" data-trigger="">
+                                <option value="0" placeholder="">Chọn loại đào tạo</option>
+                                @foreach (var loaidt in Model.LoaiDaoTaos)
+                                {
+                                    if (Model.EditCapCC.CapCC.IdLoaiDaoTao == loaidt.Id)
+                                    {
+                                        <option selected value="@loaidt.Id">@loaidt.TenLoaiDaoTao</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@loaidt.Id">@loaidt.TenLoaiDaoTao</option>
+                                    }
+                                }
+                            </select>
+                            <span asp-validation-for="EditCapCC.CapCC.IdLoaiDaoTao" class="text-danger"></span>
+                            <input id="input-id-loaidaotao-edit" asp-for="EditCapCC.CapCC.IdLoaiDaoTao" type="hidden" value="@Model.EditCapCC.CapCC.IdLoaiDaoTao" />
+                        </div>
+                        <div class="col-2">
+                            <label class="form-label" asp-for="EditCapCC.CapCC.GhiChu">Ghi chú</label>
+                            <input id="input-ghichu-edit" class="form-control" asp-for="EditCapCC.CapCC.GhiChu" value="@Model.EditCapCC.CapCC.GhiChu" />
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-6">
+                            <label class="form-label">File chứng chỉ (PDF)</label>
+                            <input value="@(Model.EditCapCC.CapCC.AnhChungChi != ""?Model.EditCapCC.CapCC.AnhChungChi.Split("/")[4]:"")" id="input-filename-chungchi-edit" type="text" readonly class="form-control" placeholder="Chưa có file..."/>
+                            <input id="filecc-path" value="@Model.EditCapCC.CapCC.AnhChungChi" asp-for="EditCapCC.CapCC.AnhChungChi" type="hidden" />
+                        </div>
+                        <div class="col-4 d-flex align-items-end">
+                            @if (Model.EditCapCC.isRemoveFile)
+                            {
+                                <input type="checkbox" hidden id="cbx-remove-filecc" asp-for="EditCapCC.isRemoveFile" checked/>
+                            }else{
+                                <input type="checkbox" hidden id="cbx-remove-filecc" asp-for="EditCapCC.isRemoveFile" />
+                            }
+                           
+                            <div><button type="button" onclick="huydoifile()" class="btn btn-danger">Hủy thay đổi</button></div>
+                            <div><label onclick="emptyFileIfNoFileSelected()" class="btn btn-success mx-3 mb-0" for="input-file-chungchi-edit">Đổi file</label>
+                                <input type="file" hidden id="input-file-chungchi-edit" asp-for="EditCapCC.AnhCC"/>
+                            </div>
+                            <div id="button-xemfilecc"><a href="..@Model.EditCapCC.CapCC.AnhChungChi" class="btn btn-warning" target="_blank">Xem file</a></div>
+                        </div>
+                        
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-12 d-flex justify-content-center">
+                            <div><button type="submit" class="btn btn-primary">Lưu thay đổi</button></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <h3 class="mb-4" style="margin-left:20px;">Danh Sách Học Viên</h3>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="table-capccs" class="table">
+                        <thead>
+                            <tr>
+                                <th>Tên Nhân Viên</th>
+                                <th>Mã Nhân Viên</th>
+                                <th>Ngày Sinh</th>
+                                <th>Loại Đào Tạo</th>
+                                <th>Ảnh Chứng Chỉ</th>
+                                <th>Ghi Chú</th>
+                                <th class="text-center">Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var capcc in Model.CapCCs)
+                            {
+                                <tr>
+                                    <td>@capcc.NhanVien.TenNV</td>
+                                    <td>@capcc.NhanVien.MaNV</td>
+                                    <td>@capcc.NhanVien.NgaySinh.Value.ToShortDateString()</td>
+                                    <td>@capcc.LoaiDaoTao.TenLoaiDaoTao</td>
+                                    <td><a href="..@capcc.AnhChungChi" target="_blank">@if (capcc.AnhChungChi != "")
+                                            {
+                                                
+                                                    @(capcc.AnhChungChi.Split("/")[4])
+                                                
+                                            }
+                                        </a>
+                                    </td>
+                                    <td>@capcc.GhiChu</td>
+                                    <td>
+                                        <div class="d-flex justify-content-center">
+                                            <button onclick="editCapCC(@capcc.NhanVien.Id,'@capcc.NhanVien.MaNV|@capcc.NhanVien.TenNV|@capcc.NhanVien.NgaySinh.Value.ToShortDateString()','@capcc.GhiChu','@capcc.AnhChungChi',@capcc.IdLoaiDaoTao)" class="btn btn-success me-2 btn-sm btn-circle"><i class="fas fa-info-circle"></i></button>
+                                            <button onclick="removeNvOutKh(@capcc.IdNhanVien,@capcc.IdKhoaHoc,'@capcc.NhanVien.TenNV')" class="btn btn-danger btn-sm btn-circle"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        var invalidEditModel = '@TempData["InvalidEditModel"]';
+
+        $("#input-start-date").daterangepicker({
+            singleDatePicker: true,
+            autoApply: true,
+            applyButtonClasses: false,
+            autoUpdateInput: true,
+            startDate: '@Model.KhoaHoc.NgayBatDau.ToShortDateString()',
+            locale: {
+                format: 'DD/MM/YYYY'
+            }
+        }, function (start) {
+            $("#input-start-date").val(start.format('DD/MM/YYYY'));
+        });
+
+        $("#input-end-date").daterangepicker({
+            singleDatePicker: true,
+            autoApply: true,
+            applyButtonClasses: false,
+            autoUpdateInput: true,
+            startDate: '@Model.KhoaHoc.NgayKetThuc.ToShortDateString()',
+            locale: {
+                format: 'DD/MM/YYYY'
+            }
+        }, function (start) {
+            $("#input-end-date").val(start.format('DD/MM/YYYY'));
+        });
+    </script>
+    <script src="~/js/KhoaHocDetail.js"></script>
+}

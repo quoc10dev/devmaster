@@ -1,0 +1,186 @@
+﻿@model ModelHolder
+
+@section Style{
+    <link rel="stylesheet" href="~/genecss/single-choices-input.css" />
+    <style>
+        #new-giaovien-form-container {
+            display: none;
+            height: 250px;
+        }
+
+        #editgiaovien-formcontainer{
+            display: none;
+        }
+    </style>
+}
+<div class="container-fluid pt-5">
+    <div id="new-giaovien-form-container" style="padding-left:20px" class="container-fluid">
+        <div id="newgiaovien-formcontainer">
+            <h3 class="mb-4">Tạo mới Giáo Viên</h3>
+            <form method="post" asp-action="CreateGiaoVien">
+                <div class="row">
+                    <div class="col-4">
+                        <label class="form-label" asp-for="GiaoVien.TenGV">Tên giáo viên</label>
+                        <input class="form-control" asp-for="GiaoVien.TenGV" type="text" />
+                        <span asp-validation-for="GiaoVien.TenGV" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label" asp-for="GiaoVien.IdDonViDaoTao">Đơn Vị Đào Tạo</label>
+                        <select id="donvi-list-select-newgv" data-trigger="">
+                            <option value="0" placeholder="">Chọn Đơn Vị</option>
+                            @foreach (var donvi in Model.DVDTs)
+                            {
+                                if(Model.GiaoVien.IdDonViDaoTao == donvi.Id)
+                                {
+                                    <option selected value="@donvi.Id">@donvi.TenDonViDaoTao</option>
+                                }
+                                else
+                                {
+                                    <option value="@donvi.Id">@donvi.TenDonViDaoTao</option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="GiaoVien.IdDonViDaoTao" class="text-danger"></span>
+                        <input id="input-id-donvi" value="@Model.GiaoVien.IdDonViDaoTao" asp-for="GiaoVien.IdDonViDaoTao" type="hidden" />
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-8 d-flex justify-content-center">
+                        <div><button type="submit" class="btn btn-primary">Lưu lại</button></div>
+                        <div><button type="button" onclick="cancelThemGiaoVienForm()" class="btn btn-danger ms-4">Đóng</button></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="editgiaovien-formcontainer">
+            <h3 class="mb-4">Edit Giáo Viên</h3>
+            <form method="post" asp-action="EditGiaoVien">
+                <input type="hidden" asp-for="GiaoVien.Id" id="input-idgiaovien-edit" />
+                <div class="row">
+                    <div class="col-4">
+                        <label class="form-label" asp-for="GiaoVien.TenGV">Tên giáo viên</label>
+                        <input id="input-tengiaovien-edit" class="form-control" asp-for="GiaoVien.TenGV" type="text" />
+                        <span asp-validation-for="GiaoVien.TenGV" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label" asp-for="GiaoVien.IdDonViDaoTao">Đơn Vị Đào Tạo</label>
+                        <select id="donvi-list-select-editgv" data-trigger="">
+                            <option value="0" placeholder="">Chọn Đơn Vị</option>
+                            @foreach (var donvi in Model.DVDTs)
+                            {
+                                if (Model.GiaoVien.IdDonViDaoTao == donvi.Id)
+                                {
+                                    <option selected value="@donvi.Id">@donvi.TenDonViDaoTao</option>
+                                }
+                                else
+                                {
+                                    <option value="@donvi.Id">@donvi.TenDonViDaoTao</option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="GiaoVien.IdDonViDaoTao" class="text-danger"></span>
+                        <input id="input-iddonvi-edit" value="@Model.GiaoVien.IdDonViDaoTao" asp-for="GiaoVien.IdDonViDaoTao" type="hidden" />
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-8 d-flex justify-content-center">
+                        <div><button type="submit" class="btn btn-primary">Lưu lại</button></div>
+                        <div><button type="button" onclick="cancelEditGiaoVienForm()" class="btn btn-danger ms-4">Hủy</button></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <h3 class="mb-4" style="margin-left:20px;">Danh Sách Giáo Viên</h3>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <div class="ms-5 align-self-start"><button onclick="newGiaoVienMode()" class="btn btn-success">Thêm giáo viên <i class="fas fa-plus ms-1"></i></button></div>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="table-giaoviens" class="table">
+                        <thead>
+                            <tr>
+                                <th>Tên Giáo Viên</th>
+                                <th>Đơn Vị</th>
+                                <th class="text-center">Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var gv in Model.GiaoViens)
+                            {
+                                <tr>
+                                    <td>@gv.TenGV</td>
+                                    <td>@gv.DonViDaoTao.TenDonViDaoTao</td>
+                                    <td>
+                                        <div class="d-flex justify-content-center">
+                                            <button onclick="editGiaoVien(@gv.Id,'@gv.TenGV',@gv.IdDonViDaoTao)" class="btn btn-primary btn-sm btn-circle"><i class="fas fa-edit"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+            var invalidModel = '@TempData["InvalidModel"]';
+            var newOrEdit = '@TempData["NewOrEdit"]';
+            if (invalidModel) {
+                $("#new-giaovien-form-container").css("display", "block");
+            }
+            if(newOrEdit){
+                editGiaoVienMode();
+            }
+        });
+        new DataTable("#table-giaoviens");
+        const dvdtChoices = new Choices($("#donvi-list-select-newgv")[0],{searchEnabled: true});
+        $("#donvi-list-select-newgv").on('change',function(e){
+            $("#input-id-donvi").val(e.detail.value);
+        });
+
+        const dvdtChoicesEdit = new Choices($("#donvi-list-select-editgv")[0], { searchEnabled: true });
+        $("#donvi-list-select-editgv").on('change', function (e) {
+            $("#input-iddonvi-edit").val(e.detail.value);
+        });
+        function btnThemGiaoVienClick() {
+            $("#new-giaovien-form-container").slideDown();
+            $('html, body').scrollTop(0);
+        }
+        function cancelThemGiaoVienForm() {
+            $("#new-giaovien-form-container").slideUp();
+        }
+
+        function editGiaoVien(id, name, iddvdt){
+            $("#input-tengiaovien-edit").val(name);
+            $("#input-idgiaovien-edit").val(id);
+            dvdtChoicesEdit.setChoiceByValue(`${iddvdt}`);
+            editGiaoVienMode();
+        }
+        function editGiaoVienMode(){            
+            $("#newgiaovien-formcontainer").css("display", "none");
+            $("#editgiaovien-formcontainer").css("display","block");
+            $("#new-giaovien-form-container").slideDown();
+            $("html, body").scrollTop(0);
+        };
+        function newGiaoVienMode() {
+            $("#editgiaovien-formcontainer").css("display", "none");
+            $("#newgiaovien-formcontainer").css("display", "block");
+            $("#new-giaovien-form-container").slideDown();
+            $("html, body").scrollTop(0);
+        };
+        
+    </script>
+}

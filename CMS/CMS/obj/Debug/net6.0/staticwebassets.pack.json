@@ -1,0 +1,433 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\CMS.bundle.scp.css",
+      "PackagePath": "staticwebassets\\CMS.bundle.scp.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\dist\\css\\adminlte.min.css",
+      "PackagePath": "staticwebassets\\dist\\css\\adminlte.min.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\dist\\js\\adminlte.min.js",
+      "PackagePath": "staticwebassets\\dist\\js\\adminlte.min.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\genecss\\single-choices-input.css",
+      "PackagePath": "staticwebassets\\genecss\\single-choices-input.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\genecss\\some-style.css",
+      "PackagePath": "staticwebassets\\genecss\\some-style.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\icon\\user-icon.png",
+      "PackagePath": "staticwebassets\\icon\\user-icon.png"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\images\\ags.jpg",
+      "PackagePath": "staticwebassets\\images\\ags.jpg"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\images\\avatar-placeholder.png",
+      "PackagePath": "staticwebassets\\images\\avatar-placeholder.png"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\js\\KhoaHocDetail.js",
+      "PackagePath": "staticwebassets\\js\\KhoaHocDetail.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\js\\KhoaHocList.js",
+      "PackagePath": "staticwebassets\\js\\KhoaHocList.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\js\\ModuleExport.js",
+      "PackagePath": "staticwebassets\\js\\ModuleExport.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\js\\NhanVienList.js",
+      "PackagePath": "staticwebassets\\js\\NhanVienList.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\js\\NhanVienProfile.js",
+      "PackagePath": "staticwebassets\\js\\NhanVienProfile.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\js\\QuyetDinhDetail.js",
+      "PackagePath": "staticwebassets\\js\\QuyetDinhDetail.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\SweetAlert2\\css\\sweetalert2.min.css",
+      "PackagePath": "staticwebassets\\lib\\SweetAlert2\\css\\sweetalert2.min.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\SweetAlert2\\js\\sweetalert2.all.min.js",
+      "PackagePath": "staticwebassets\\lib\\SweetAlert2\\js\\sweetalert2.all.min.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\choices.js-10.2.0\\css\\base.min.css",
+      "PackagePath": "staticwebassets\\lib\\choices.js-10.2.0\\css\\base.min.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\choices.js-10.2.0\\css\\choices.min.css",
+      "PackagePath": "staticwebassets\\lib\\choices.js-10.2.0\\css\\choices.min.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\choices.js-10.2.0\\js\\choices.min.js",
+      "PackagePath": "staticwebassets\\lib\\choices.js-10.2.0\\js\\choices.min.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\datepicker\\css\\daterangepicker.css",
+      "PackagePath": "staticwebassets\\lib\\datepicker\\css\\daterangepicker.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\datepicker\\js\\daterangepicker.js",
+      "PackagePath": "staticwebassets\\lib\\datepicker\\js\\daterangepicker.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\datepicker\\js\\moment.min.js",
+      "PackagePath": "staticwebassets\\lib\\datepicker\\js\\moment.min.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\logo\\ags_logo.png",
+      "PackagePath": "staticwebassets\\logo\\ags_logo.png"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\plugin\\datatables\\css\\dataTables.bootstrap5.min.css",
+      "PackagePath": "staticwebassets\\plugin\\datatables\\css\\dataTables.bootstrap5.min.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\plugin\\datatables\\css\\jquery.dataTables.min.css",
+      "PackagePath": "staticwebassets\\plugin\\datatables\\css\\jquery.dataTables.min.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\plugin\\datatables\\js\\dataTables.bootstrap5.min.js",
+      "PackagePath": "staticwebassets\\plugin\\datatables\\js\\dataTables.bootstrap5.min.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\plugin\\datatables\\js\\jquery.dataTables.min.js",
+      "PackagePath": "staticwebassets\\plugin\\datatables\\js\\jquery.dataTables.min.js"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\plugin\\fontawesome\\css\\all.min.css",
+      "PackagePath": "staticwebassets\\plugin\\fontawesome\\css\\all.min.css"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\plugin\\fontawesome\\webfonts\\fa-brands-400.eot",
+      "PackagePath": "staticwebassets\\plugin\\fontawesome\\webfonts\\fa-brands-400.eot"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\plugin\\fontawesome\\webfonts\\fa-brands-400.svg",
+      "PackagePath": "staticwebassets\\plugin\\fontawesome\\webfonts\\fa-brands-400.svg"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\plugin\\fontawesome\\webfonts\\fa-brands-400.ttf",
+      "PackagePath": "staticwebassets\\plugin\\fontawesome\\webfonts\\fa-brands-400.ttf"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\plugin\\fontawesome\\webfonts\\fa-brands-400.woff",
+      "PackagePath": "staticwebassets\\plugin\\fontawesome\\webfonts\\fa-brands-400.woff"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\plugin\\fontawesome\\webfonts\\fa-brands-400.woff2",
+      "PackagePath": "staticwebassets\\plugin\\fontawesome\\webfonts\\fa-brands-400.woff2"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\plugin\\fontawesome\\webfonts\\fa-regular-400.eot",
+      "PackagePath": "staticwebassets\\plugin\\fontawesome\\webfonts\\fa-regular-400.eot"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\plugin\\fontawesome\\webfonts\\fa-regular-400.svg",
+      "PackagePath": "staticwebassets\\plugin\\fontawesome\\webfonts\\fa-regular-400.svg"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\plugin\\fontawesome\\webfonts\\fa-regular-400.ttf",
+      "PackagePath": "staticwebassets\\plugin\\fontawesome\\webfonts\\fa-regular-400.ttf"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\plugin\\fontawesome\\webfonts\\fa-regular-400.woff",
+      "PackagePath": "staticwebassets\\plugin\\fontawesome\\webfonts\\fa-regular-400.woff"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\plugin\\fontawesome\\webfonts\\fa-regular-400.woff2",
+      "PackagePath": "staticwebassets\\plugin\\fontawesome\\webfonts\\fa-regular-400.woff2"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\plugin\\fontawesome\\webfonts\\fa-solid-900.eot",
+      "PackagePath": "staticwebassets\\plugin\\fontawesome\\webfonts\\fa-solid-900.eot"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\plugin\\fontawesome\\webfonts\\fa-solid-900.svg",
+      "PackagePath": "staticwebassets\\plugin\\fontawesome\\webfonts\\fa-solid-900.svg"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\plugin\\fontawesome\\webfonts\\fa-solid-900.ttf",
+      "PackagePath": "staticwebassets\\plugin\\fontawesome\\webfonts\\fa-solid-900.ttf"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\plugin\\fontawesome\\webfonts\\fa-solid-900.woff",
+      "PackagePath": "staticwebassets\\plugin\\fontawesome\\webfonts\\fa-solid-900.woff"
+    },
+    {
+      "Id": "C:\\Users\\quoc.nguyen\\source\\repos\\IT-AGS\\CMS\\CMS\\wwwroot\\plugin\\fontawesome\\webfonts\\fa-solid-900.woff2",
+      "PackagePath": "staticwebassets\\plugin\\fontawesome\\webfonts\\fa-solid-900.woff2"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.CMS.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.build.CMS.props",
+      "PackagePath": "build\\CMS.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.CMS.props",
+      "PackagePath": "buildMultiTargeting\\CMS.props"
+    },
+    {
+      "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.buildTransitive.CMS.props",
+      "PackagePath": "buildTransitive\\CMS.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

@@ -1,0 +1,166 @@
+﻿@model ModelHolder
+
+@section Style{
+    <link rel="stylesheet" href="~/genecss/single-choices-input.css" />
+    <style>
+        #new-khoahoc-form-container {
+            display: none;
+            height: 380px;
+        }
+
+    </style>
+}
+
+<div class="container-fluid pt-5">
+    <div id="new-khoahoc-form-container" style="padding-left:20px" class="container-fluid">
+        <h3 class="mb-4">Tạo mới Khóa Học</h3>
+        <form method="post" asp-action="CreateKhoaHoc">
+            <div class="row">
+                <div class="col-4">
+                    <label class="form-label">Quyết định số</label>
+                    <select id="quyetdinh-list-select" data-trigger="">
+                        <option value="0" placeholder="">Chọn quyết định</option>
+                        @foreach (var qd in Model.QuyetDinhs)
+                        {
+                            if (Model.KhoaHoc.IdQuyetDinh == qd.Id)
+                            {
+                                <option selected value="@qd.Id">@qd.SoQuyetDinh</option>
+                            }
+                            else
+                            {
+                                <option value="@qd.Id">@qd.SoQuyetDinh</option>
+                            }
+                        }
+                    </select>
+                    <span asp-validation-for="KhoaHoc.IdQuyetDinh" class="text-danger"></span>
+                    <input id="input-id-quyetdinh" type="hidden" asp-for="KhoaHoc.IdQuyetDinh" value="@Model.KhoaHoc.IdQuyetDinh" />
+                </div>
+                <div class="col-4">
+                    <label class="form-label">Chứng chỉ</label>
+                    <select id="chungchi-list-select" data-trigger="">
+                        <option value="0" placeholder="">Chọn chứng chỉ</option>
+                        @foreach (var cc in Model.ChungChis)
+                        {
+                            if (Model.KhoaHoc.IdChungChi == cc.Id)
+                            {
+                                <option selected value="@cc.Id">@cc.TenChungChi</option>
+                            }
+                            else
+                            {
+                                <option value="@cc.Id">@cc.TenChungChi</option>
+                            }
+                        }
+                    </select>
+                    <span asp-validation-for="KhoaHoc.IdChungChi" class="text-danger"></span>
+                    <input id="input-id-chungchi" type="hidden" asp-for="KhoaHoc.IdChungChi" value="@Model.KhoaHoc.IdChungChi" />
+                </div>
+                <div class="col-2">  
+                    <label class="form-label" asp-for="KhoaHoc.NgayKetThuc">Ngày bắt đầu</label>
+                    <input type="text" asp-for="KhoaHoc.NgayBatDau" class="form-control" id="input-start-date" /> 
+                </div>
+                <div class="col-2">
+                    <label class="form-label" asp-for="KhoaHoc.NgayKetThuc">Ngày kết thúc</label>
+                    <input type="text" asp-for="KhoaHoc.NgayKetThuc" class="form-control" id="input-end-date" /> 
+                </div>               
+            </div>
+            <div class="row my-4">
+                <div class="col-4">
+                    <label class="form-label">Giáo viên</label>
+                    <select id="giaovien-list-select" data-trigger="">
+                        <option value="0" placeholder="">Chọn giáo viên</option>
+                        @foreach (var gv in Model.GiaoViens)
+                        {
+                            if (Model.KhoaHoc.IdGiaoVien == gv.Id)
+                            {
+                                <option selected value="@gv.Id">@gv.TenGV</option>
+                            }
+                            else
+                            {
+                                <option value="@gv.Id">@gv.TenGV</option>
+                            }
+                        }
+                    </select>
+                    <span asp-validation-for="KhoaHoc.IdGiaoVien" class="text-danger"></span>
+                    <input id="input-id-giaovien" type="hidden" asp-for="KhoaHoc.IdGiaoVien" value="@Model.KhoaHoc.IdGiaoVien" />
+                </div>
+                <div class="col-2">
+                    <label class="form-label" asp-for="KhoaHoc.ExpMonth">Thời gian hiệu lực (tháng)</label>
+                    <input class="form-control" asp-for="KhoaHoc.ExpMonth" type="number" />
+                    <span asp-validation-for="KhoaHoc.ExpMonth" class="text-danger"></span>
+                </div>
+                <div class="col-2">
+                    <label class="form-label" asp-for="KhoaHoc.DiaDiem">Địa điểm</label> 
+                    <input class="form-control" asp-for="KhoaHoc.DiaDiem" type="text" />
+                </div> 
+                <div class="col-4">
+                    <label class="form-label" asp-for="KhoaHoc.GhiChu">Ghi chú</label> 
+                    <input class="form-control" asp-for="KhoaHoc.GhiChu" type="text" />
+                </div> 
+            </div>
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary">Lưu lại</button>
+                    <button type="button" onclick="cancelThemKhoaHocForm()" class="btn btn-danger ms-4">Đóng</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <h3 class="mb-4" style="margin-left:20px;">Danh Sách Khóa Học</h3>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <div class="ms-5 align-self-start"><button onclick="btnThemKhoaHocClick()" class="btn btn-success">Thêm khóa học <i class="fas fa-plus ms-1"></i></button></div>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="table-quyetdinhs" class="table">
+                        <thead>
+                            <tr>
+                                <th>Tên Khóa Học</th>
+                                <th>Ngày Bắt Đầu</th>
+                                <th>Ngày Kết Thúc</th>
+                                <th>Số Quyết Định</th>
+                                <th class="text-center">Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var kh in Model.KhoaHocs)
+                            {
+                                <tr>
+                                    <td>@kh.ChungChi.TenChungChi</td>
+                                    <td>@kh.NgayBatDau.ToShortDateString()</td>
+                                    <td>@kh.NgayKetThuc.ToShortDateString()</td>
+                                    <td>@kh.QuyetDinh.SoQuyetDinh</td>
+                                    <td>
+                                        <div class="d-flex justify-content-center">
+                                            <button onclick="openKhoaHocDetailPage(@kh.Id)" class="btn btn-success me-2 btn-sm btn-circle"><i class="fas fa-info-circle"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var invalidModel = '@TempData["InvalidModel"]';
+            var preset = @Model.KhoaHoc.IdQuyetDinh;
+            if (invalidModel) {
+                $("#new-khoahoc-form-container").css("display", "block");
+            }
+            if(preset != 0){
+                $("#new-khoahoc-form-container").css("display", "block");
+            }
+        });
+    </script>
+    <script src="~/js/KhoaHocList.js"></script>
+}

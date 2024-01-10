@@ -1,0 +1,97 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = CMS
+build_property.RootNamespace = CMS
+build_property.ProjectDir = C:\Users\quoc.nguyen\source\repos\IT-AGS\CMS\CMS\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = C:\Users\quoc.nguyen\source\repos\IT-AGS\CMS\CMS
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/quoc.nguyen/source/repos/IT-AGS/CMS/CMS/Views/App/ChangePass.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwXENoYW5nZVBhc3MuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/quoc.nguyen/source/repos/IT-AGS/CMS/CMS/Views/App/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwXExvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/quoc.nguyen/source/repos/IT-AGS/CMS/CMS/Views/App/SignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXBwXFNpZ25VcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/quoc.nguyen/source/repos/IT-AGS/CMS/CMS/Views/ChungChi/ChungChiList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2h1bmdDaGlcQ2h1bmdDaGlMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/quoc.nguyen/source/repos/IT-AGS/CMS/CMS/Views/DVDT/DVDTList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRFZEVFxEVkRUTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/quoc.nguyen/source/repos/IT-AGS/CMS/CMS/Views/GiaoVien/GiaoVienList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcR2lhb1ZpZW5cR2lhb1ZpZW5MaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/quoc.nguyen/source/repos/IT-AGS/CMS/CMS/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/quoc.nguyen/source/repos/IT-AGS/CMS/CMS/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/quoc.nguyen/source/repos/IT-AGS/CMS/CMS/Views/KhoaHoc/KhoaHocDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hvYUhvY1xLaG9hSG9jRGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/quoc.nguyen/source/repos/IT-AGS/CMS/CMS/Views/KhoaHoc/KhoaHocList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2hvYUhvY1xLaG9hSG9jTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/quoc.nguyen/source/repos/IT-AGS/CMS/CMS/Views/NhanVien/NhanVienList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhhblZpZW5cTmhhblZpZW5MaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/quoc.nguyen/source/repos/IT-AGS/CMS/CMS/Views/NhanVien/NhanVienProfile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmhhblZpZW5cTmhhblZpZW5Qcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/quoc.nguyen/source/repos/IT-AGS/CMS/CMS/Views/QuyetDinh/QuyetDinhDetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXV5ZXREaW5oXFF1eWV0RGluaERldGFpbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/quoc.nguyen/source/repos/IT-AGS/CMS/CMS/Views/QuyetDinh/QuyetDinhList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUXV5ZXREaW5oXFF1eWV0RGluaExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/quoc.nguyen/source/repos/IT-AGS/CMS/CMS/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/quoc.nguyen/source/repos/IT-AGS/CMS/CMS/Views/Shared/_LoginLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/quoc.nguyen/source/repos/IT-AGS/CMS/CMS/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/quoc.nguyen/source/repos/IT-AGS/CMS/CMS/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/quoc.nguyen/source/repos/IT-AGS/CMS/CMS/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/quoc.nguyen/source/repos/IT-AGS/CMS/CMS/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-71ficycxyo

@@ -1,0 +1,133 @@
+﻿@model ModelHolder
+
+@section Style{
+    <style>
+        #new-dvdt-form-container {
+            display: none;
+            height: 250px;
+        }
+
+        #editdvdt-formcontainer{
+            display: none;
+        }
+    </style>
+}
+<div class="container-fluid pt-5">
+    <div id="new-dvdt-form-container" style="padding-left:20px" class="container-fluid">
+        <div id="newdvdt-formcontainer">
+            <h3 class="mb-4">Tạo mới Đơn Vị Đào Tạo</h3>
+            <form method="post" asp-action="CreateDVDT">
+                <div class="row">
+                    <div class="col-4">
+                        <label class="form-label" asp-for="DVDT.TenDonViDaoTao">Tên Đơn Vị</label>
+                        <input class="form-control" asp-for="DVDT.TenDonViDaoTao" type="text" />
+                        <span asp-validation-for="DVDT.TenDonViDaoTao" class="text-danger"></span>
+                    </div>              
+                </div>
+                <div class="row mt-4">
+                    <div class="col-4 d-flex justify-content-center">
+                        <div><button type="submit" class="btn btn-primary">Lưu lại</button></div>
+                        <div><button type="button" onclick="cancelThemDVDTForm()" class="btn btn-danger ms-4">Đóng</i></button></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="editdvdt-formcontainer">
+            <h3 class="mb-4">Edit Đơn Vị Đào Tạo</h3>
+            <form method="post" asp-action="EditDVDT">
+                <input id="input-iddvdt-edit" asp-for="DVDT.Id" type="hidden" />
+                <div class="row">
+                    <div class="col-4">
+                        <label class="form-label" asp-for="DVDT.TenDonViDaoTao">Tên Đơn Vị</label>
+                        <input id="input-tendvdt-edit" class="form-control" asp-for="DVDT.TenDonViDaoTao" type="text" value="@Model.DVDT.TenDonViDaoTao" />
+                        <span asp-validation-for="DVDT.TenDonViDaoTao" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-4 d-flex justify-content-center">
+                        <div><button type="submit" class="btn btn-primary">Lưu lại</button></div>
+                        <div><button type="button" onclick="cancelEditDVDT()" class="btn btn-danger ms-4">Hủy</button></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <h3 class="mb-4" style="margin-left:20px;">Danh Sách Đơn Vị Đào Tạo</h3>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <div class="ms-5 align-self-start"><button onclick="newDVDTMode()" class="btn btn-success">Thêm đơn vị <i class="fas fa-plus ms-1"></i></button></div>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="table-donvis" class="table">
+                        <thead>
+                            <tr>
+                                <th>Tên Đơn Vị</th>
+                                <th class="text-center">Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var dvdt in Model.DVDTs)
+                            {
+                                <tr>
+                                    <td>@dvdt.TenDonViDaoTao</td>
+                                    <td>
+                                        <div class="d-flex justify-content-center">
+                                            <button onclick="editDVDT(@dvdt.Id,'@dvdt.TenDonViDaoTao')" class="btn btn-primary btn-sm btn-circle"><i class="fas fa-edit"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script>
+        $(document).ready(function(){
+            var invalidModel = '@TempData["InvalidModel"]';
+            var newOrEdit = '@TempData["NewOrEdit"]';
+            if(invalidModel){
+                $("#new-dvdt-form-container").css("display","block");
+            }
+            if(newOrEdit){
+                editDVDTMode();
+            }
+        });
+        new DataTable("#table-donvis");
+
+        function cancelThemDVDTForm() {
+            $("#new-dvdt-form-container").slideUp();
+        }
+        function cancelEditDVDT() {
+            window.open(location.origin + "/DVDT/DVDTList", "_self");
+        }
+        function editDVDT(id, name){
+            $("#input-iddvdt-edit").val(id);
+            $("#input-tendvdt-edit").val(name);
+            editDVDTMode();
+        }
+        function editDVDTMode() {
+            $("#newdvdt-formcontainer").css("display", "none");
+            $("html, body").scrollTop(0);
+            $("#editdvdt-formcontainer").css("display", "block");
+            $("#new-dvdt-form-container").slideDown();
+        }
+        function newDVDTMode() {
+            $("#newdvdt-formcontainer").css("display", "block");
+            $("#editdvdt-formcontainer").css("display", "none");
+            $("#new-dvdt-form-container").slideDown();
+            $("html, body").scrollTop(0);
+        }
+    </script>
+}

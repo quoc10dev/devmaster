@@ -1,0 +1,236 @@
+﻿@model ModelHolder
+
+@section Style{
+    <link rel="stylesheet" href="~/genecss/single-choices-input.css" />
+    <style>
+        #new-nhanvien-form-container{
+            display: none;
+            height:500px;
+        }
+        .avt-container{
+            height: 100px;
+            width: 100px;
+            background-color: #1f2d3d;
+            padding:7px;
+            border-radius:6px;
+            overflow: hidden;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+  
+    </style>
+}
+
+<div class="container-fluid pt-5">
+    <div id="new-nhanvien-form-container" style="padding-left:20px" class="container-fluid">
+        <h3 class="mb-4">Tạo mới nhân viên</h3>
+        <form method="post" asp-action="CreateNhanVien" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col-8">
+                    <div class="row mb-2">
+                        <div class="col-6">
+                            <label asp-for="CreateNhanVien.NhanVien.MaNV" class="form-label">Mã nhân viên</label>
+                            <input asp-for="CreateNhanVien.NhanVien.MaNV" class="form-control" type="text" />
+                        </div>
+                        <div class="col-6">
+                            <label asp-for="CreateNhanVien.NhanVien.TenNV" class="form-label">Tên nhân viên</label>
+                            <input asp-for="CreateNhanVien.NhanVien.TenNV" class="form-control" type="text" />
+                            <span asp-validation-for="CreateNhanVien.NhanVien.TenNV" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-6">
+                            <label asp-for="CreateNhanVien.NhanVien.CCCD" class="form-label">CCCD/CMND</label>
+                            <input asp-for="CreateNhanVien.NhanVien.CCCD" class="form-control" type="text" />
+                        </div>
+                        <div class="col-6">
+                            <label asp-for="CreateNhanVien.NhanVien.NgaySinh" class="form-label">Ngày sinh</label>
+                            <input asp-for="CreateNhanVien.NhanVien.NgaySinh" class="form-control" type="text" id="nhanvien-birthday-input" />
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-6">
+                            <label asp-for="CreateNhanVien.NhanVien.DiaChi" class="form-label">Địa chỉ</label>
+                            <input asp-for="CreateNhanVien.NhanVien.DiaChi" class="form-control" type="text" />
+                        </div>
+                        <div class="col-6">
+                            <label asp-for="CreateNhanVien.NhanVien.Sdt" class="form-label">Số điện thoại</label>
+                            <input asp-for="CreateNhanVien.NhanVien.Sdt" class="form-control" type="text" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div style="margin-top:20px" class="d-flex flex-column justify-content-center align-items-center">
+                        <div class="avt-container"><img id="preview-avt-nhanvien-new" style="object-fit:cover;max-height:100%;max-width:100%" src="~/images/avatar-placeholder.png"/></div>
+                        <div class="mt-4">
+                            <label style="width:100px;font-weight:400" class="btn btn-warning" for="avt-nhanvien-new">Tải ảnh lên</label>
+                            <input asp-for="CreateNhanVien.Avt" id="avt-nhanvien-new" type="file" accept="image/*" hidden />
+                        </div>
+                        <p style="color:red;padding-top:20px;" id="img-extension-validate"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-4">
+                    <label class="form-label">Phòng ban</label>
+                    <select id="phongban-list-select-newnv" data-trigger="">
+                        <option value="0" placeholder="">Chọn phòng ban</option>
+                        @foreach(var phongban in Model.PhongBans)
+                        {
+                            if (Model.CreateNhanVien.NhanVien.IdPhongBan == phongban.Id)
+                            {
+                                <option selected value="@phongban.Id">@phongban.TenPhongBan</option>
+                            }
+                            else
+                            {
+                                <option value="@phongban.Id">@phongban.TenPhongBan</option>
+                            }
+                        }
+                    </select>
+                    <span asp-validation-for="CreateNhanVien.NhanVien.IdPhongBan" class="text-danger"></span>
+                    <input id="input-id-phongban" asp-for="CreateNhanVien.NhanVien.IdPhongBan" type="hidden" value="@Model.CreateNhanVien.NhanVien.IdPhongBan" />
+                </div>
+                <div class="col-4">
+                    <label class="form-label">Chức danh</label>
+                    <select id="chucdanh-list-select-newnv" data-trigger="">
+                        <option value="0" placeholder="">Chọn chức danh</option>
+                        @foreach (var chucdanh in Model.ChucDanhs)
+                        {
+                            if (Model.CreateNhanVien.NhanVien.IdChucDanh == chucdanh.Id)
+                            {
+                                <option selected value="@chucdanh.Id">@chucdanh.TenChucDanh</option>
+                            }
+                            else
+                            {
+                                <option value="@chucdanh.Id">@chucdanh.TenChucDanh</option>
+                            }
+
+                        }
+                    </select>
+                    <span asp-validation-for="CreateNhanVien.NhanVien.IdChucDanh" class="text-danger"></span>
+                    <input id="input-id-chucdanh" asp-for="CreateNhanVien.NhanVien.IdChucDanh" type="hidden" value="@Model.CreateNhanVien.NhanVien.IdChucDanh" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-8 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary">Lưu lại</button>
+                    <button type="button" onclick="cancelThemNhanVienForm()" class="btn btn-danger ms-4">Đóng</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <h3 class="mb-4" style="margin-left:20px;">Danh Sách Nhân Viên</h3>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center ">
+                        <div class="flex-grow-1">
+                            <form asp-action="NhanViensSearchBy" method="post">
+                                <div class="row">
+                                    <div class="col">
+                                        <label asp-for="SearchNhanVien.MaNV" class="form-label">Mã nhân viên</label>
+                                        <input asp-for="SearchNhanVien.MaNV" class="form-control" type="text" />
+                                    </div>
+                                    <div class="col">
+                                        <label asp-for="SearchNhanVien.TenNV" class="form-label">Tên nhân viên</label>
+                                        <input asp-for="SearchNhanVien.TenNV" class="form-control" type="text" />
+                                    </div>
+                                    <div class="col">
+                                        <label class="form-label">Phòng ban</label>
+                                        <select id="phongban-list-select-search" data-trigger="">
+                                            <option value="0" placeholder="">Chọn phòng ban</option>
+                                            @foreach(var pb in Model.PhongBans)
+                                            {
+                                                if (Model.SearchNhanVien.IdPhongBan == pb.Id)
+                                                {
+                                                    <option selected value="@pb.Id">@pb.TenPhongBan</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@pb.Id">@pb.TenPhongBan</option>
+                                                }
+                                            }
+                                        </select>
+                                        <input id="input-idphongban-search" asp-for="SearchNhanVien.IdPhongBan" value="@Model.SearchNhanVien.IdPhongBan" type="hidden" />
+                                    </div>
+                                    <div class="col">
+                                        <label class="form-label">Chức danh</label>
+                                        <select id="chucdanh-list-select-search" data-trigger="">
+                                            <option value="0" placeholder="">Chọn chức danh</option>
+                                            @foreach (var cd in Model.ChucDanhs)
+                                            {
+                                                if (Model.SearchNhanVien.IdChucDanh == cd.Id)
+                                                {
+                                                    <option selected value="@cd.Id">@cd.TenChucDanh</option>
+                                                }
+                                                else
+                                                {
+                                                    <option value="@cd.Id">@cd.TenChucDanh</option>
+                                                }
+                                            }
+                                        </select>
+                                        <input id="input-idchucdanh-search" asp-for="SearchNhanVien.IdChucDanh" value="@Model.SearchNhanVien.IdChucDanh" type="hidden" />
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-start mt-3">
+                                    <div class="me-3"><button type="button" onclick="clearSearchNhanVien()" class="btn btn-danger">Clear <i class="fas fa-trash ms-1"></i></button></div>
+                                    <div><button type="submit" class="btn btn-primary">Search <i class="fas fa-search ms-1"></i></button></div>
+                                </div>
+                            </form>
+                        </div>
+                     
+                        <div class="ms-5 align-self-start"><button onclick="btnThemNhanVienClick()" class="btn btn-success">Thêm nhân viên <i class="fas fa-plus ms-1"></i></button></div>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="example2" class="table">
+                        <thead>
+                            <tr>
+                                <th>Tên Nhân Viên</th>
+                                <th>Mã Nhân Viên</th>
+                                <th>Ngày Sinh</th>
+                                <th>Phòng Ban</th>
+                                <th>Chức Danh</th>
+                                <th class="text-center">Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach(var nhanvien in Model.NhanViens)
+                            {
+                                <tr>
+                                    <td style="vertical-align:middle">@nhanvien.TenNV</td>
+                                    <td style="vertical-align:middle">@nhanvien.MaNV</td>
+                                    <td style="vertical-align:middle">@nhanvien.NgaySinh.Value.ToShortDateString()</td>
+                                    <td style="vertical-align:middle">@nhanvien.PhongBan.TenPhongBan</td>
+                                    <td style="vertical-align:middle">@nhanvien.ChucDanh.TenChucDanh</td>
+                                    <td>
+                                        <div class="d-flex justify-content-center">
+                                            <button onclick="openPageNVProfile(@nhanvien.Id)" class="btn btn-success me-2 btn-sm btn-circle"><i class="fas fa-info-circle"></i></button>
+                                            <button onclick="deleteNhanVien(@nhanvien.Id,'@nhanvien.TenNV','@nhanvien.AnhNhanVien')" class="btn btn-danger btn-sm btn-circle"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        $(document).ready(function(){
+            var invalidModel = '@TempData["InvalidModel"]';
+            if (invalidModel) {
+                $("#new-nhanvien-form-container").css("display","block");
+            }
+        });
+    </script>
+    <script src="~/js/NhanVienList.js"></script>
+}

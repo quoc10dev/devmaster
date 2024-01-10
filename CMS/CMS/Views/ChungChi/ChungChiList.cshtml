@@ -1,0 +1,184 @@
+﻿@model ModelHolder
+
+@section Style{
+    <link rel="stylesheet" href="~/genecss/single-choices-input.css" />
+    <style>
+        #new-chungchi-form-container {
+            display: none;
+            height: 250px;
+        }
+        #editcc-formcontainer{
+            display: none;
+        }
+    </style>
+}
+<div class="container-fluid pt-5">
+    <div id="new-chungchi-form-container" style="padding-left:20px" class="container-fluid">
+        <h3 id="title-form" class="mb-4">Tạo mới Chứng Chỉ</h3>
+        <div id="newcc-formcontainer">
+            <form method="post" asp-action="CreateChungChi">
+                <div class="row">
+                    <div class="col-4">
+                        <label class="form-label" asp-for="ChungChi.TenChungChi">Tên chứng chỉ</label>
+                        <input class="form-control" asp-for="ChungChi.TenChungChi" type="text" />
+                        <span asp-validation-for="ChungChi.TenChungChi" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label" asp-for="ChungChi.IdNhomChungChi">Nhóm chứng chỉ</label>
+                        <select id="nhomcc-list-select-newcc" data-trigger="">
+                            <option value="0" placeholder="">Chọn nhóm chứng chỉ</option>
+                            @foreach(var nhomcc in Model.NhomChungChis)
+                            {
+                                if(Model.ChungChi.IdNhomChungChi == nhomcc.Id)
+                                {
+                                    <option selected value="@nhomcc.Id">@nhomcc.TenNhom</option>
+                                }
+                                else
+                                {
+                                    <option value="@nhomcc.Id">@nhomcc.TenNhom</option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="ChungChi.IdNhomChungChi" class="text-danger"></span>
+                        <input asp-for="ChungChi.IdNhomChungChi" value="@Model.ChungChi.IdNhomChungChi" id="input-idnhomcc" type="hidden"/>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-8 d-flex justify-content-center align-items-end">
+                        <div><button type="submit" class="btn btn-primary">Lưu lại</button></div>
+                        <div><button type="button" onclick="cancelThemChungChiForm()" class="btn btn-danger ms-4">Đóng</button></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div id="editcc-formcontainer">
+            <form method="post" asp-action="EditChungChi">
+                <input id="input-idcc-edit" asp-for="ChungChi.Id" type="hidden" />
+                <div class="row">
+                    <div class="col-4">
+                        <label class="form-label" asp-for="ChungChi.TenChungChi">Tên chứng chỉ</label>
+                        <input id="input-tencc-edit" class="form-control" asp-for="ChungChi.TenChungChi" type="text" value="@Model.ChungChi.TenChungChi"/>
+                        <span asp-validation-for="ChungChi.TenChungChi" class="text-danger"></span>
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label" asp-for="ChungChi.IdNhomChungChi">Nhóm chứng chỉ</label>
+                        <select id="nhomcc-list-select-edit" data-trigger="">
+                            <option value="0" placeholder="">Chọn nhóm chứng chỉ</option>
+                            @foreach (var nhomcc in Model.NhomChungChis)
+                            {
+                                if (Model.ChungChi.IdNhomChungChi == nhomcc.Id)
+                                {
+                                    <option selected value="@nhomcc.Id">@nhomcc.TenNhom</option>
+                                }
+                                else
+                                {
+                                    <option value="@nhomcc.Id">@nhomcc.TenNhom</option>
+                                }
+                            }
+                        </select>
+                        <span asp-validation-for="ChungChi.IdNhomChungChi" class="text-danger"></span>
+                        <input asp-for="ChungChi.IdNhomChungChi" value="@Model.ChungChi.IdNhomChungChi" id="input-idnhomcc-edit" type="hidden" />
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-8 d-flex justify-content-center align-items-end">
+                        <div><button type="submit" class="btn btn-primary">Lưu lại</button></div>
+                        <div><button type="button" onclick="cancelEditCC()" class="btn btn-danger ms-4">Hủy</button></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <h3 class="mb-4" style="margin-left:20px;">Danh Sách Chứng Chỉ</h3>
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <div class="ms-5 align-self-start"><button onclick="newCCMode()" class="btn btn-success">Thêm chứng chỉ <i class="fas fa-plus ms-1"></i></button></div>
+                    </div>
+                </div>
+                <!-- /.card-header -->
+                <div class="card-body">
+                    <table id="table-chungchis" class="table">
+                        <thead>
+                            <tr>
+                                <th>Tên Chứng Chỉ</th>
+                                <th>Nhóm Chứng Chỉ</th>
+                                <th class="text-center">Thao Tác</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var cc in Model.ChungChis)
+                            {
+                                <tr>
+                                    <td>@cc.TenChungChi</td>
+                                    <td>@cc.NhomChungChi.TenNhom</td>
+                                    <td><div class="d-flex justify-content-center"><button onclick="editChungChi(@cc.Id,'@cc.TenChungChi',@cc.NhomChungChi.Id)" class="btn btn-primary btn-sm btn-circle me-2"><i class="fas fa-edit"></i></button></div></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script>
+        $(document).ready(function () {
+            var invalidModel = '@TempData["InvalidModel"]';
+            var newOrEdit = '@TempData["NewOrEdit"]';
+            if (invalidModel) {
+                $("#new-chungchi-form-container").css("display", "block");
+            }
+            if(newOrEdit==="edit"){
+                editCCMode();
+            }
+        });
+        new DataTable("#table-chungchis");
+
+        function cancelThemChungChiForm() {
+            $("#new-chungchi-form-container").slideUp();
+        }
+        function cancelEditCC(){
+            window.open(location.origin+"/ChungChi/ChungChiList","_self");
+        }
+        const nhomcc_choices_newcc = new Choices($("#nhomcc-list-select-newcc")[0],{
+            searchEnabled: true
+        });
+        $("#nhomcc-list-select-newcc").on('change',function(e){
+            $("#input-idnhomcc").val(e.detail.value);
+        });
+        const nhomcc_choices_edit = new Choices($("#nhomcc-list-select-edit")[0], {
+            searchEnabled: true
+        });
+        $("#nhomcc-list-select-edit").on('change', function (e) {
+            $("#input-idnhomcc-edit").val(e.detail.value);
+        });
+        function editChungChi(id,name,idnhom){
+            $("#input-tencc-edit").val(name);
+            $("#input-idcc-edit").val(id);
+            nhomcc_choices_edit.setChoiceByValue(`${idnhom}`);
+
+            editCCMode();
+        }
+        function editCCMode(){
+            $("#title-form").html("Edit Chứng Chỉ");
+            $("#newcc-formcontainer").css("display", "none");
+            $("html, body").scrollTop(0);
+            $("#editcc-formcontainer").css("display", "block");
+            $("#new-chungchi-form-container").slideDown();
+        }
+        function newCCMode(){
+            $("#title-form").html("Tạo mới Chứng Chỉ");
+            $("#newcc-formcontainer").css("display", "block");
+            $("#editcc-formcontainer").css("display", "none");
+            $("#new-chungchi-form-container").slideDown();
+            $("html, body").scrollTop(0);
+        }
+    </script>
+}

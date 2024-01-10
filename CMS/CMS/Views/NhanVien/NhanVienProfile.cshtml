@@ -1,0 +1,455 @@
+﻿@model ModelHolder
+
+@section Style{
+    <link rel="stylesheet" href="~/genecss/single-choices-input.css" />
+    <style>
+        .inputs-edit-nhanvien{
+            display:none !important;
+        }
+        .avt-container {
+            height: 100px;
+            width: 100px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+        }
+    </style>
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Hồ sơ nhân viên</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3">
+                <form asp-action="EditNhanVienProfile" method="post" enctype="multipart/form-data">
+                    <input type="hidden" asp-for="NhanVien.Id" value="@Model.NhanVien.Id" />
+                    <!-- Profile Image -->
+                    <div style="position:relative" class="card card-primary card-outline">
+                        <div style="position:absolute"><button type="button" onclick="enableEditProfile()" class="btn btn-danger btn-sm ms-2 mt-2"><i class="fas fa-edit"></i></button></div>
+                        <div style="position:absolute;right:10px;top:5px">
+                            @if (Model.NhanVien.TrangThai)
+                            {
+                                <span class="badge bg-success">Đang làm</span>
+                            }
+                            else
+                            {
+                                <span class="badge bg-danger">Đã nghỉ</span>
+                            }
+                            <div class="form-check inputs-edit-nhanvien">
+                                <input class="form-check-input" asp-for="NhanVien.TrangThai" type="checkbox" />
+                                <label class="form-check-label" asp-for="NhanVien.TrangThai">Đang làm</label>
+                            </div>                          
+                        </div>
+                        <div class="card-body box-profile">
+                            <div class="avt-container">
+                                <input type="hidden" asp-for="NhanVien.AnhNhanVien" id="origin-avt" />
+                                @if (Model.NhanVien.AnhNhanVien == "" || Model.NhanVien.AnhNhanVien == null)
+                                {
+                                    <img id="img-avt" style="object-fit:cover;max-height:100%;" class="profile-user-img img-fluid img-circle"
+                                         src="~/images/avatar-placeholder.png"
+                                         alt="User profile picture">
+                                }
+                                else
+                                {
+                                    <img id="img-avt" onclick="viewAvt('@Model.NhanVien.AnhNhanVien')" style="object-fit:cover;max-height:100%;cursor:pointer" class="profile-user-img img-fluid img-circle"
+                                         src="..@Model.NhanVien.AnhNhanVien"
+                                         alt="User profile picture">
+                                }
+                                
+                            </div>
+                            <div class="inputs-edit-nhanvien mt-2">
+                                <div class="d-flex justify-content-center">
+                                    <label onclick="renewFile()" for="input-file-avt" class="btn btn-warning btn-sm m-0">Đổi ảnh</label>
+                                    <input asp-for="EditNhanVien.Avt" type="file" hidden id="input-file-avt" accept="image/*" />
+                                    <input type="checkbox" asp-for="EditNhanVien.isRemoveFile" id="cbx-isRemoveFile" hidden/>
+                                    <button style="display:none" id="btn-cancelAvtChange" onclick="cancelAvtChange()" class="btn btn-danger btn-sm ms-2" type="button">Hủy đổi</button>
+                                </div>
+                                <p style="color:red;padding-top:10px;margin-bottom:10px" id="img-extension-validate"></p>
+                            </div>
+
+                            <h3 class="profile-username text-center mt-3 texts-info-nhanvien">@Model.NhanVien.TenNV</h3>
+                            <div class="mt-3 inputs-edit-nhanvien">
+                                <input class="form-control" asp-for="NhanVien.TenNV" value="@Model.NhanVien.TenNV" />
+                                <span asp-validation-for="NhanVien.TenNV" class="text-danger"></span>
+                            </div>
+
+                            <p class="text-muted text-center texts-info-nhanvien">@Model.NhanVien.ChucDanh.TenChucDanh</p>
+                            <div class="inputs-edit-nhanvien">
+                                <select id="chucdanh-list-select" data-trigger="">
+                                    <option value="0" placeholder="">Chọn chức danh</option>
+                                    @foreach(var cd in Model.ChucDanhs)
+                                    {
+                                        if(Model.NhanVien.IdChucDanh == cd.Id)
+                                        {
+                                            <option selected value="@cd.Id">@cd.TenChucDanh</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@cd.Id">@cd.TenChucDanh</option>
+                                        }
+                                    }
+                                </select>
+                                <span asp-validation-for="NhanVien.IdChucDanh" class="text-danger"></span>
+                                <input id="input-idchucdanh-nvedit" type="hidden" asp-for="NhanVien.IdChucDanh" value="@Model.NhanVien.IdChucDanh" />
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                    <!-- About Me Box -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Thông tin cá nhân</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <strong><i class="fas fa-book mr-1"></i> Mã nhân viên</strong>
+
+                            <p class="text-muted texts-info-nhanvien">@Model.NhanVien.MaNV</p>
+                            <input asp-for="NhanVien.MaNV" value="@Model.NhanVien.MaNV" class="form-control inputs-edit-nhanvien" />
+
+                            <hr>
+                            <strong><i class="fas fa-book mr-1"></i> Phòng ban</strong>
+
+                            <p class="text-muted texts-info-nhanvien">@Model.NhanVien.PhongBan.TenPhongBan</p>
+                            <div class="inputs-edit-nhanvien">
+                                <select id="phongban-list-select" data-trigger="">
+                                    <option value="0" placeholder="">Chọn phòng ban</option>
+                                    @foreach (var pb in Model.PhongBans)
+                                    {
+                                        if (Model.NhanVien.IdPhongBan == pb.Id)
+                                        {
+                                            <option selected value="@pb.Id">@pb.TenPhongBan</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@pb.Id">@pb.TenPhongBan</option>
+                                        }
+                                    }
+                                </select>
+                                <span asp-validation-for="NhanVien.IdPhongBan" class="text-danger"></span>
+                                <input id="input-idphongban-nvedit" type="hidden" asp-for="NhanVien.IdPhongBan" value="@Model.NhanVien.IdPhongBan" />
+                            </div>
+                            <hr>
+
+                            <strong><i class="fas fa-map-marker-alt mr-1"></i> Nơi ở</strong>
+
+                            <p class="text-muted texts-info-nhanvien">@Model.NhanVien.DiaChi</p>
+                            <input asp-for="NhanVien.DiaChi" value="@Model.NhanVien.DiaChi" class="form-control inputs-edit-nhanvien" />
+
+                            <hr>
+
+                            <strong><i class="fas fa-map-marker-alt mr-1"></i>Điện thoại</strong>
+
+                            <p class="text-muted texts-info-nhanvien">@Model.NhanVien.Sdt</p>
+                            <input asp-for="NhanVien.Sdt" value="@Model.NhanVien.Sdt" class="form-control inputs-edit-nhanvien" />
+                            <hr>
+                            <strong><i class="far fa-file-alt mr-1"></i>Năm sinh</strong>
+                            
+                            <p class="text-muted texts-info-nhanvien">@Model.NhanVien.NgaySinh.Value.ToShortDateString()</p>
+                            <div class="inputs-edit-nhanvien"><input asp-for="NhanVien.NgaySinh" id="input-ngaysinh-nhanvien" type="text" class="form-control" /></div>
+                            
+                            <hr>
+                            <div class="inputs-edit-nhanvien">
+                                <div class="d-flex justify-content-center">
+                                    <button type="submit" class="btn btn-success">Lưu lại</button>
+                                    <button onclick="cancelEditProfileNV()" type="button" class="btn btn-secondary ms-3">Hủy</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </form>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header p-2">
+                        <ul class="nav nav-pills" role="tablist">
+                            <li class="nav-item"><button class="nav-link active" id="pills-ktchung-tab" data-bs-toggle="pill" data-bs-target="#pills-ktchung" type="button" role="tab" aria-controls="pills-ktchung" aria-selected="true">Kiến thức chung</button></li>
+                            <li class="nav-item"><button class="nav-link" id="pills-chuyenmon-tab" data-bs-toggle="pill" data-bs-target="#pills-chuyenmon" type="button" role="tab" aria-controls="pills-chuyenmon" aria-selected="true">Chuyên môn</button></li>
+                            <li class="nav-item"><button class="nav-link" id="pills-cckhac-tab" data-bs-toggle="pill" data-bs-target="#pills-cckhac" type="button" role="tab" aria-controls="pills-cckhac" aria-selected="true">Chứng chỉ khác</button></li>
+                        </ul>
+                    </div><!-- /.card-header -->
+                    <div class="card-body">
+                        <div class="tab-content">
+                            @{
+                                var groupCCs = new List<Tuple<int,string, int>>();
+                                var capCCs = Model.NhanVien.CapChungChis.OrderBy(capcc => capcc.KhoaHoc.NgayBatDau);
+                                foreach (var capcc in capCCs)
+                                {
+                                    groupCCs.Add(new Tuple<int, string, int>(capcc.KhoaHoc.ChungChi.Id, capcc.KhoaHoc.ChungChi.TenChungChi,capcc.KhoaHoc.ChungChi.NhomChungChi.Id));
+                                }
+                                var distinctGroupCCs = groupCCs.DistinctBy(i => i.Item1).ToList();
+
+                                <div class="active tab-pane fade show" id="pills-ktchung">
+                                    @foreach (var groupCC in distinctGroupCCs)
+                                    {
+                                        if (groupCC.Item3 == 1)
+                                        {
+                                            <section class="content">
+                                                <div class="card">
+                                                    <div class="card-header bg-success bg-gradient">
+                                                        <h3 class="card-title">@groupCC.Item2</h3>
+                                                        <div class="card-tools ">
+                                                            <button type="button" style="color:white" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                                                <i class="fas fa-minus"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body p-0">
+                                                        <table class="table projects text-center">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th style="width: 1%">
+                                                                        #
+                                                                    </th>
+                                                                    <th style="width: 18%">
+                                                                        Loại cấp phát
+                                                                    </th>
+                                                                    <th style="width: 25%">
+                                                                        Quyết định
+                                                                    </th>
+                                                                    <th style="width: 18%">
+                                                                        Ngày hiệu lực
+                                                                    </th>
+                                                                    <th style="width: 18%">
+                                                                        Ngày hết hạn
+                                                                    </th>
+                                                                    <th></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @{
+                                                                    var stt = 0;
+                                                                    foreach (var cc in capCCs)
+                                                                    {
+                                                                        if (cc.KhoaHoc.ChungChi.Id == groupCC.Item1)
+                                                                        {
+                                                                            stt += 1;
+                                                                            <tr>
+                                                                                <td>@stt</td>
+                                                                                @if (stt == 1)
+                                                                                {
+                                                                                    <td><a style="text-decoration:underline" href="..@cc.AnhChungChi">@cc.LoaiDaoTao.TenLoaiDaoTao</a></td>
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    <td>@cc.LoaiDaoTao.TenLoaiDaoTao</td>
+                                                                                }
+                                                                                <td><a style="text-decoration:underline" href="..@cc.KhoaHoc.QuyetDinh.AnhQuyetDinh">@cc.KhoaHoc.QuyetDinh.SoQuyetDinh</a></td>
+                                                                                <td>@cc.KhoaHoc.NgayBatDau.ToShortDateString()</td>
+                                                                                <td>@cc.KhoaHoc.NgayBatDau.AddMonths(cc.KhoaHoc.ExpMonth).ToShortDateString()</td>
+                                                                                <td class="project-actions text-right">
+                                                                                    <a target="_blank" class="btn btn-primary btn-sm" href="../khoahoc/khoahocdetail?idkh=@cc.KhoaHoc.Id">Chi tiết</a>
+                                                                                </td>
+                                                                            </tr>
+                                                                        }
+                                                                    }
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        }
+
+                                    }
+                                </div>
+                                <div class="tab-pane fade show" id="pills-chuyenmon">
+                                    @foreach (var groupCC in distinctGroupCCs)
+                                    {
+                                        if(groupCC.Item3 == 2)
+                                        {
+                                            <section class="content">
+                                                <div class="card">
+                                                    <div class="card-header bg-success bg-gradient">
+                                                        <h3 class="card-title">@groupCC.Item2</h3>
+                                                        <div class="card-tools ">
+                                                            <button type="button" style="color:white" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                                                <i class="fas fa-minus"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body p-0">
+                                                        <table class="table projects text-center">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th style="width: 1%">
+                                                                        #
+                                                                    </th>
+                                                                    <th style="width: 18%">
+                                                                        Loại cấp phát
+                                                                    </th>
+                                                                    <th style="width: 25%">
+                                                                        Quyết định
+                                                                    </th>
+                                                                    <th style="width: 18%">
+                                                                        Ngày hiệu lực
+                                                                    </th>
+                                                                    <th style="width: 18%">
+                                                                        Ngày hết hạn
+                                                                    </th>
+                                                                    <th></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @{
+                                                                    var stt = 0;
+                                                                    foreach (var cc in capCCs)
+                                                                    {
+                                                                        if (cc.KhoaHoc.ChungChi.Id == groupCC.Item1)
+                                                                        {
+                                                                            stt += 1;
+                                                                            <tr>
+                                                                                <td>@stt</td>
+                                                                                @if (stt == 1)
+                                                                                {
+                                                                                    <td><a style="text-decoration:underline" href="..@cc.AnhChungChi">@cc.LoaiDaoTao.TenLoaiDaoTao</a></td>
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    <td>@cc.LoaiDaoTao.TenLoaiDaoTao</td>
+                                                                                }
+                                                                                <td><a style="text-decoration:underline" href="..@cc.KhoaHoc.QuyetDinh.AnhQuyetDinh">@cc.KhoaHoc.QuyetDinh.SoQuyetDinh</a></td>
+                                                                                <td>@cc.KhoaHoc.NgayBatDau.ToShortDateString()</td>
+                                                                                <td>@cc.KhoaHoc.NgayBatDau.AddMonths(cc.KhoaHoc.ExpMonth).ToShortDateString()</td>
+                                                                                <td class="project-actions text-right">
+                                                                                    <a target="_blank" class="btn btn-primary btn-sm" href="../khoahoc/khoahocdetail?idkh=@cc.KhoaHoc.Id">Chi tiết</a>
+                                                                                </td>
+                                                                            </tr>
+                                                                        }
+                                                                    }
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        }
+                                              
+                                    }
+                                </div>
+                                <div class="tab-pane fade show" id="pills-cckhac">
+                                    @foreach (var groupCC in distinctGroupCCs)
+                                    {
+                                        if (groupCC.Item3 == 3)
+                                        {
+                                            <section class="content">
+                                                <div class="card">
+                                                    <div class="card-header bg-success bg-gradient">
+                                                        <h3 class="card-title">@groupCC.Item2</h3>
+                                                        <div class="card-tools ">
+                                                            <button type="button" style="color:white" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+                                                                <i class="fas fa-minus"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    <div class="card-body p-0">
+                                                        <table class="table projects text-center">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th style="width: 1%">
+                                                                        #
+                                                                    </th>
+                                                                    <th style="width: 18%">
+                                                                        Loại cấp phát
+                                                                    </th>
+                                                                    <th style="width: 25%">
+                                                                        Quyết định
+                                                                    </th>
+                                                                    <th style="width: 18%">
+                                                                        Ngày hiệu lực
+                                                                    </th>
+                                                                    <th style="width: 18%">
+                                                                        Ngày hết hạn
+                                                                    </th>
+                                                                    <th></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @{
+                                                                    var stt = 0;
+                                                                    foreach (var cc in capCCs)
+                                                                    {
+                                                                        if (cc.KhoaHoc.ChungChi.Id == groupCC.Item1)
+                                                                        {
+                                                                            stt += 1;
+                                                                            <tr>
+                                                                                <td>@stt</td>
+                                                                                @if (stt == 1)
+                                                                                {
+                                                                                    <td><a style="text-decoration:underline" href="..@cc.AnhChungChi">@cc.LoaiDaoTao.TenLoaiDaoTao</a></td>
+                                                                                }
+                                                                                else
+                                                                                {
+                                                                                    <td>@cc.LoaiDaoTao.TenLoaiDaoTao</td>
+                                                                                }  
+                                                                                <td><a style="text-decoration:underline" href="..@cc.KhoaHoc.QuyetDinh.AnhQuyetDinh">@cc.KhoaHoc.QuyetDinh.SoQuyetDinh</a></td>
+                                                                                <td>@cc.KhoaHoc.NgayBatDau.ToShortDateString()</td>
+                                                                                <td>@cc.KhoaHoc.NgayBatDau.AddMonths(cc.KhoaHoc.ExpMonth).ToShortDateString()</td>
+                                                                                <td class="project-actions text-right">
+                                                                                    <a target="_blank" class="btn btn-primary btn-sm" href="../khoahoc/khoahocdetail?idkh=@cc.KhoaHoc.Id">Chi tiết</a>
+                                                                                </td>
+                                                                            </tr>
+                                                                        }
+                                                                    }
+                                                                }
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        }
+
+                                    }
+                                </div>
+                            }
+                        </div>
+                        <!-- /.tab-content -->
+                    </div><!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div><!-- /.container-fluid -->
+</section>
+<!-- /.content -->
+@section Scripts{
+    <script>
+        const invalidNVModel = '@TempData["InvalidNVModel"]';
+        function cancelEditProfileNV(){
+            window.open(location.origin + `/NhanVien/NhanVienProfile?idnv=@Model.NhanVien.Id`, '_self');
+        }
+
+        $("#input-ngaysinh-nhanvien").daterangepicker({
+            singleDatePicker: true,
+            autoApply: true,
+            applyButtonClasses: false,
+            autoUpdateInput: true,
+            startDate: '@Model.NhanVien.NgaySinh.Value.ToShortDateString()',
+            locale: {
+                format: 'DD/MM/YYYY'
+            }
+        }, function (start) {
+            $("#input-ngaysinh-nhanvien").val(start.format('DD/MM/YYYY'));
+        });
+    </script>
+    <script src="~/js/NhanVienProfile.js"></script>
+}
